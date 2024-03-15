@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 18:37:04 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/15 20:18:31 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/15 22:01:17 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	fdf_error(t_main *main, char *str)
 				free (main->map->vertices);
 			free (main->map);
 		}
-		printf("%p %p\n", main->mlx, main->image.img);
+		// printf("%p %p\n", main->mlx, main->image.img);
 		if (main->image.img)
 			mlx_destroy_image(main->mlx, main->image.img);
 		if (main->win)

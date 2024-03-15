@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 16:30:27 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/15 21:36:21 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/15 22:55:55 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 #                                                                           #
  ##########################################################################*/
  
-# define ESC_KEY 65307
-# define S_KEY 115
 # define FDF_WINDOW_HEIGHT 720
 # define FDF_WINDOW_WIDTH 1080
 # define FDF_WINDOW_BORDER 100
@@ -93,6 +91,12 @@ typedef struct s_main
 	t_data	image;
 }	t_main;
 
+typedef struct s_colors
+{
+	int 	zmin;
+	int		zmax;
+	int		zmed;
+}	t_colors;
 
 /*##########################################################################
 #                                                                           #
@@ -116,7 +120,8 @@ void	fdf_graphics_close(t_main *main);
 void	my_mlx_pixel_put(t_data *image, int x, int y, int color);
 void	fdf_set_points(t_main *main);
 void	fdf_draw_points(t_main *main);
-int	fdf_mouse_scroll(int button, int x, int y, t_main *main);
+int		fdf_mouse_scroll(int button, int x, int y, t_main *main);
+void	fdf_draw_lines(t_main *main);
 
 t_scale fdf_scale_init(t_main *main);
 void	fdf_scale_edit(t_main *main);

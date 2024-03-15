@@ -6,7 +6,7 @@
 #    By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 18:13:27 by eschussl          #+#    #+#              #
-#    Updated: 2024/03/15 21:01:00 by eschussl         ###   ########.fr        #
+#    Updated: 2024/03/15 22:56:12 by eschussl         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,8 @@ SRCS			=	main.c\
 					fdf_graphics_close.c\
 					fdf_set_points.c\
 					fdf_draw_points.c\
-					fdf_mouse_scroll.c)\
+					fdf_mouse_scroll.c\
+					fdf_draw_lines.c)\
 					# $(addprefix $(DISPLAY_PATH),\
 					# fdf_display_mapping.c\
 					# fdf_display_summary.c)\

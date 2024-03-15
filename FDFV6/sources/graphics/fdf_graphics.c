@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:59:51 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/15 21:54:51 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/15 22:59:48 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	fdf_graphics(t_main *main)
 	fdf_scale_edit(main);
 	fdf_set_points(main);
 	fdf_draw_points(main);
+	// fdf_draw_lines(main);
 	mlx_put_image_to_window(main->mlx, main->win, main->image.img, 0, 0);
 	
 	mlx_hook(main->win, 2, 1L<<0, fdf_graphics_keypress, main);

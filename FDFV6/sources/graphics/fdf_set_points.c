@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 18:47:34 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/15 21:35:56 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/15 22:01:39 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	fdf_set_points(t_main *main)
 	i = 0;
 	while (i < main->map->info.width * main->map->info.height)
 	{
-		//printf("%.0f, %.0f\n", main->map->vertices[i].x[0],main->map->vertices[i].x[0] + main->scale.window_center_x);
+		// printf("%.0f, %.0f\n", main->map->vertices[i].x[0],main->map->vertices[i].x[0] + main->scale.window_center_x);
 		main->map->vertices[i] = fdf_scaling(main, main->map->vertices[i]);
 		main->map->vertices[i] = fdf_init(main, main->map->vertices[i]);
 		// main->map->vertices[i] = fdf_translation(main, main->map->vertices[i]);
