@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 17:16:20 by eschussl          #+#    #+#             */
-/*   Updated: 2024/02/26 17:54:26 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/01 15:51:35 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,3 +56,4 @@ t_fdf_mapping	***fdf_mapping(char *str, t_fdf_info_summary *summary, t_fdf_mappi
 	}
 	return (mapping);
 }
+

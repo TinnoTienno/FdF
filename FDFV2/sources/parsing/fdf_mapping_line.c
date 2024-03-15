@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 17:17:02 by eschussl          #+#    #+#             */
-/*   Updated: 2024/02/26 22:46:31 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:38:54 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,18 @@ static t_fdf_mapping	*fdf_mapping_elem(char *str, int *i, int x, int y)
 	mappingelem->z = ft_atoi(&str[*i]);
 	mappingelem->x = x;
 	mappingelem->y = y;
-	printf ("%s\n", &str[*i]);
 	while (str[*i] && ft_isdigit(str[*i]))
-		i++;
-	if (str[*i] != ',')
-	{
 		*i += 1;
+	if (str[*i] && str[*i] != ',')
+	{
+		*i += 3;
 		mappingelem->colors = ft_atoi_base(&str[*i], 16);
+		while (str[*i] && ft_isalnum(str[*i]))
+			*i += 1;
 	}
 	else
 		mappingelem->colors = 0;
-	while (str[*i] == ' ' || str[*i] == '\n')
+	while (str[*i] && (str[*i] == ' ' || str[*i] == '\n'))
 		*i += 1;
 	return (mappingelem);
 }
@@ -66,6 +67,10 @@ t_fdf_mapping	**fdf_mapping_line(char *str, t_fdf_info_summary *summary, int *i,
 		mappingline[x] = fdf_mapping_elem(str, i, x, y);
 		if (!mappingline[x])
 			return (fdf_error_mapping_line(mappingline), NULL);
+		if (mappingline[x]->z > summary->zmax)
+			summary->zmax = mappingline[x]->z;
+		else if (mappingline[x]->z < summary->zmin)
+			summary->zmin = mappingline[x]->z;
 		x++;
 	}
 	return (mappingline);

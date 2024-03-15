@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 16:56:01 by eschussl          #+#    #+#             */
-/*   Updated: 2024/02/26 22:56:58 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/02/27 15:24:45 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*gwf_strjoin(char *heap, char *stack)
 	int		j;
 
 	i = -1;
-	if (!heap)
+	if (!heap || !heap[0])
 	{
 		res = malloc (ft_strlen(stack) + 1);
 		while (stack[++i])
@@ -27,7 +27,8 @@ char	*gwf_strjoin(char *heap, char *stack)
 		res[i] = 0;
 		return (res);
 	}
-	res = malloc (ft_strlen(stack) + ft_strlen(heap) + 1);
+	// printf ("stack : %d | heap : %d\n", ft_strlen(stack), ft_strlen(heap));
+	res = malloc ((ft_strlen(stack) + ft_strlen(heap) + 1) * sizeof(char));
 	while (heap[++i])
 		res[i] = heap[i];
 	j = -1;
@@ -45,17 +46,12 @@ char	*gwf(int fd)
 	int		reader;
 
 	reader = read(fd, &buffer, GWF_BUFFER_SIZE);
-	buffer[GWF_BUFFER_SIZE] = 0;
+	res = NULL;
 	if (reader <= 0)
 		return (fd_printf(2, "Error : Nothing to read in function gwf\n"), NULL);
-	res = malloc (sizeof(reader + 1));
-	if (!res)
-		return (NULL);
-	res[0] = 0;
-	while (reader == GWF_BUFFER_SIZE)
+	while (buffer[0])
 	{
-		printf("res : |\n%s|\n", res);
-		printf("buffer : |%s|\n", buffer);
+		buffer[reader] = 0;
 		res = gwf_strjoin(res, buffer);
 		if (!res)
 			return (NULL);
