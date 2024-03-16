@@ -2,6 +2,7 @@ FDFV7 =
 Correction du makefile et du relink du .h : VALIDE
 Gestion de redimmensionnement de la fenetre : VALIDE
 Ajout d'un parsing plus rapide via GNL: VALIDE
-Reconstruction de la structure pour une meilleure lisibilite:
+Reconstruction de la structure pour une meilleure lisibilite: VALIDE
 Ajout d'un calcul de couleurs de base :
+Ajout des lignes :
 Ajout de l'affichage des lignes de couleur degrade : 

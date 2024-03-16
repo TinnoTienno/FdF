@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 16:30:27 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/16 23:25:21 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/17 00:12:17 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,29 @@ typedef struct	t_parsing
 	char	*line;
 }	t_parsing;
 
+typedef struct s_color
+{
+	int color_deepsea;
+	int	color_sealevel;
+	int color_beach;
+	int	color_moutain;
+	int color_top;
+	double	sea_level;
+	double	beach_level;
+	double	moutain_level;
+}	t_color;
+
 typedef struct s_main
 {
 	t_finfo	file_info;
 	t_parsing	*list;
 	t_map	map;
+	t_color	colors;
 	void	*mlx;
 	void	*win;
 }	t_main;
+
+
 
 
 
