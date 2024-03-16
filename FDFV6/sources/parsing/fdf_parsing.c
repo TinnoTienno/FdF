@@ -6,14 +6,14 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 18:52:03 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/15 21:26:35 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/16 17:51:47 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include <fcntl.h>
 
- void fdf_parsing(t_main *main, char *filename)
+void fdf_parsing(t_main *main, char *filename)
 {
 	char	*str;
 	int		fd;
