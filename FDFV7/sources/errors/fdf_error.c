@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 16:48:50 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/16 21:51:53 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/17 17:09:10 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,27 @@ void	fdf_error(t_main *main, char *error_message)
 	}
 	if (main->map.vertices)
 	{
-		y = 0;
-		while (y < main->map.info.height)
-		{
+		y = -1;
+		while (++y < main->map.info.height)
 			free (main->map.vertices[y]);
-			y++;
-		}
 		free (main->map.vertices);
 	}
-	if (error_message && error_message[0])
+	if (main->image.img)
+		mlx_destroy_image(main->mlx, main->image.img);
+	if (main->win)
+		mlx_destroy_window(main->mlx, main->win);
+	if (main->mlx)
 	{
-		exit (EXIT_FAILURE);
+		mlx_destroy_display(main->mlx);
+		free (main->mlx);
 	}
+	if (main->display)
+	{
+		y = -1;
+		while (++y < main->map.info.height)
+			free (main->display[y]);
+		free (main->display);
+	}
+	if (error_message && error_message[0])
+		exit (EXIT_FAILURE);
 }

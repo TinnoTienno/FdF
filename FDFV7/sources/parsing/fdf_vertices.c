@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 20:04:52 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/16 23:41:27 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/21 15:29:02 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,41 +20,34 @@ static int	fdf_vertex_error(char *str)
 	i = 0;
 	nb = ft_atolle(str, &i);
 	if (nb > 2147483647 || nb < -2147483648)
-	{
-		printf("1\n");
 		return (1);
-	}
-	if (!str[i])
+	if (!str[i] || str[i] == '\n' || str[i] == ' ')
 		return (0);
 	if (str[i] != ',')
-	{
-		printf("2\n");
 		return (2);
-	}
 	i++;
 	while (str[i] && (ft_isalnum(str[i]) || (str[i] >= 'a' && str[i] <= 'f') || (str[i] >= 'A' && str[i] <= 'f')))
 		i++;
-	if (str[i] != 0 && str[i] != 10 && str[i] != '\n')
-	{
-		printf("3\n");
+	if (!str[i] || str[i] == '\n' || str[i] == ' ')
+		return (0);
+	else
 		return (3);
-	}
-	return (0);
 }
 
-static t_vertex fdf_vertex(int x, int y, char *str)
+static t_vertex fdf_vertex(int x, int y, char *str, int *index)
 {
 	t_vertex	new;
-	int i;
 	
 	new.x = x;
 	new.y = y;
-	i = 0;
 	new.z = 0;
-	new.z = ft_atolle(str, &i);
+	new.z = ft_atolle(str, index);
 	new.color = 0xFFFFFF;
-	if (str[i])
-		new.color = ft_atoi_base(&str[i + 3], "0123456789ABCDEF");
+	if (str[*index] == ',')
+	{	
+		*index = *index + 3;
+		new.color = ft_atoi_base(str, "0123456789ABCDEF", index);
+	}
 	return (new);
 }
 static void	fdf_zmin_zmax_edit(t_main *main, int y, int x)
@@ -67,29 +60,26 @@ static void	fdf_zmin_zmax_edit(t_main *main, int y, int x)
 static void	fdf_map_lines(t_main *main, int y, t_parsing *line)
 {
 	int	x;
-	char **linetab;
-
+	int	i;
+	
 	x = 0;
-	linetab = ft_split(line->line, ' ');
-	if (!linetab)
-		fdf_error(main, "Error in function fdf_map_lines : Malloc\n");
-	while (x < main->map.info.width)
+	i = 0;
+	while (line->line[i] && line->line[i] == ' ')
+			i++;
+	while (x < main->map.info.width && line->line[i])
 	{
-		if (fdf_vertex_error(linetab[x]))
-		{
-			ft_freectab(linetab);
-			fdf_error(main, "Error in fdf_vertex : Incorrect map 1\n");
-		}
-		main->map.vertices[y][x] = fdf_vertex(x, y, linetab[x]);
+		if (fdf_vertex_error(&line->line[i]))
+			fdf_error(main, "Error in fdf_map_lines function : Incorrect map\n");
+		main->map.vertices[y][x] = fdf_vertex(x, y, line->line, &i);
 		fdf_zmin_zmax_edit(main, y, x);
 		x++;
+		while (line->line[i] && line->line[i] == ' ')
+			i++;
 	}
-	if (linetab[x])
-	{
-		ft_freectab(linetab);
-		fdf_error(main, "Error in fdf_vertex : Incorrect map\n");
-	}	
-	ft_freectab(linetab);
+	if (x < main->map.info.width)
+		fdf_error(main, "Error in fdf_map_lines function : Incorrect map\n");
+	if (line->line[i])
+		fdf_error(main, "Error in fdf_map_lines function : Incorrect map\n");
 }
 void	fdf_vertices(t_main *main)
 {
@@ -104,7 +94,6 @@ void	fdf_vertices(t_main *main)
 		if (!main->map.vertices[y])
 			fdf_error(main, "Error in fdf_vertices function : Malloc unitialized\n");
 		fdf_map_lines(main, y, tmp);
-		// fdf_display_vertex(main, y, 0);
 		tmp = tmp->next;
 		y++;		
 	}

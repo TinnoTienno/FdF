@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:51:19 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/16 19:50:54 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/21 15:14:15 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void			*ft_setalloc(size_t elementsize, size_t elementcount, int c);
  ##############*/
 
 int				ft_atoi(const char *nptr);
-int				ft_atoi_base(const char *str, const char *base);
+int				ft_atoi_base(const char *str, const char *base, int *i);
 char			*ft_itoa(int n);
 char			**ft_split(char const *s, char c);
 char 			*ft_argjoin(char **tab, char c);

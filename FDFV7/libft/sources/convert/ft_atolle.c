@@ -13,7 +13,7 @@
 /*Fonction atolle renvoie un long
 passe en argument un pointeur *i renvoyant l'index du caractere suivant le nombre lu.
 Si aucune valeur n'a ete lue *i renvoie -1 et la fonction 0;*/
-
+#include <stdio.h>
 long	ft_atolle(char *nptr, int *i)
 {
 	int	sign;
@@ -22,7 +22,9 @@ long	ft_atolle(char *nptr, int *i)
 
 	sign = 1;
 	res = 0;
-	while (nptr[*i] == ' ' || (nptr[*i] >= 9 && nptr[*i] <= 13))
+	if (!nptr)
+		return (0);
+	while (nptr[*i] && (nptr[*i] == ' ' || (nptr[*i] >= 9 && nptr[*i] <= 13)))
 		*i += 1;
 	if (nptr[*i] == '+' || nptr[*i] == '-')
 	{

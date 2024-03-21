@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 23:15:37 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/16 23:20:20 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/20 14:26:34 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,13 @@ void	fdf_main_init(t_main *main)
 	main->map.vertices = NULL;
 	main->mlx = NULL;
 	main->win = NULL;
+	main->image.img = NULL;
+	main->image.addr = NULL;
+	main->image.bits_per_pixel = 0;
+	main->image.line_length = 0;
+	main->image.endian = 0;
+	main->event.color_mode = 0;
+	main->event.line_mode = 0;
+	main->event.view_mode = 0;
+	main->display = NULL;
 }

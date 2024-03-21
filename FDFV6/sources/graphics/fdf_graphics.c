@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:59:51 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/15 22:59:48 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/18 16:52:07 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,12 @@ void	fdf_graphics(t_main *main)
 	main->image.img = mlx_new_image(main->mlx, FDF_WINDOW_WIDTH, FDF_WINDOW_HEIGHT);
 	if (!main->image.img)
 		fdf_error(main, "Error in mlx_new_image function : Malloc\n");
-	// printf("%p\n", main->image.img);
 	main->image.addr = mlx_get_data_addr(main->image.img, &main->image.bits_per_pixel, &main->image.line_length, &main->image.endian);
 	mlx_mouse_hook(main->win, fdf_mouse_scroll, main);
 	fdf_scale_edit(main);
 	fdf_set_points(main);
 	fdf_draw_points(main);
-	// fdf_draw_lines(main);
 	mlx_put_image_to_window(main->mlx, main->win, main->image.img, 0, 0);
-	
 	mlx_hook(main->win, 2, 1L<<0, fdf_graphics_keypress, main);
 	mlx_loop(main->mlx);
 }

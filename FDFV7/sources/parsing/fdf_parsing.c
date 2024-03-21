@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 17:50:58 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/16 23:14:16 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/18 17:07:06 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static t_parsing *fdf_new_node(t_main *main, int fd, t_parsing *previous)
 		free (new->line);
 		new->line = gnl(fd);
 	}
-	if (new->line)
+	if (new->line && new->line[ft_strlen(new->line) - 1] == '\n')
 		new->line[ft_strlen(new->line) - 1] = 0;
 	new->next = NULL;
 	previous->next = new;
@@ -48,7 +48,8 @@ static void	fdf_list_build(t_main *main, int fd)
 		if (!main->list->line)
 			fdf_error(main, "Error in fdf_list_build function : Empty file\n");
 	}
-	main->list->line[ft_strlen(main->list->line) - 1] = 0;
+	if (main->list->line[ft_strlen(main->list->line) - 1] == '\n')
+		main->list->line[ft_strlen(main->list->line) - 1] = 0;
 	main->list->next = NULL;
 	tmp = main->list;
 	while (tmp->line)
