@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 23:15:37 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/20 14:26:34 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/21 16:16:18 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ void	fdf_main_init(t_main *main)
 	main->event.color_mode = 0;
 	main->event.line_mode = 0;
 	main->event.view_mode = 0;
+	main->event.scaling = 1;
 	main->display = NULL;
 }

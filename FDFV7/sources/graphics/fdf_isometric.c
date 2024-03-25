@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_colors_set.c                                   :+:      :+:    :+:   */
+/*   fdf_isometric.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/17 14:32:14 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/20 15:30:23 by eschussl         ###   ########.fr       */
+/*   Created: 2024/03/25 14:05:32 by eschussl          #+#    #+#             */
+/*   Updated: 2024/03/25 14:46:07 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	fdf_color_parsing(t_main *main)
+void	fdf_isometric(t_main *main)
 {
-	int	y;
-	int	x;
+	int y;
+	int x;
 
 	y = 0;
 	while (y < main->map.info.height)
@@ -23,8 +23,10 @@ void	fdf_color_parsing(t_main *main)
 		x = 0;
 		while (x < main->map.info.width)
 		{
-			main->display[y][x].color1 = main->map.vertices[y][x].color;
-			main->display[y][x].color2 = fdf_color2_vertex(main->map.vertices[y][x].z, main); 
+			VALUE(VERTEX(x, y), 1, 0) = (VALUE(VERTEX(x, y), 0, 0) - VALUE(VERTEX(x, y), 0, 1)) * cos(M_PI / 6);
+			VALUE(VERTEX(x, y), 1, 1) = (VALUE(VERTEX(x, y), 0, 0) + VALUE(VERTEX(x, y), 0, 1)) * sin(M_PI / 6) - VALUE(VERTEX(x, y), 0, 2);
+			x++;
 		}
+		y++;
 	}
 }

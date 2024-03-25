@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 20:04:52 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/21 15:29:02 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/25 13:56:44 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ static t_vertex fdf_vertex(int x, int y, char *str, int *index)
 {
 	t_vertex	new;
 	
-	new.x = x;
-	new.y = y;
-	new.z = 0;
-	new.z = ft_atolle(str, index);
+	new.values[0][0] = x;
+	new.values[0][1] = y;
+	new.values[0][2] = 0;
+	new.values[0][2] = ft_atolle(str, index);
 	new.color = 0xFFFFFF;
 	if (str[*index] == ',')
 	{	
@@ -52,10 +52,10 @@ static t_vertex fdf_vertex(int x, int y, char *str, int *index)
 }
 static void	fdf_zmin_zmax_edit(t_main *main, int y, int x)
 {
-	if (main->map.info.zmin > (int) main->map.vertices[y][x].z)
-		main->map.info.zmin = (int) main->map.vertices[y][x].z;
-	if (main->map.info.zmax < (int) main->map.vertices[y][x].z)
-		main->map.info.zmax = (int) main->map.vertices[y][x].z;
+	if (main->map.info.zmin > (int) main->map.vertices[y][x].values[0][2])
+		main->map.info.zmin = (int) main->map.vertices[y][x].values[0][2];
+	if (main->map.info.zmax < (int) main->map.vertices[y][x].values[0][2])
+		main->map.info.zmax = (int) main->map.vertices[y][x].values[0][2];
 }
 static void	fdf_map_lines(t_main *main, int y, t_parsing *line)
 {

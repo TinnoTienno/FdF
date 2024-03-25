@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_color_shift.c                                  :+:      :+:    :+:   */
+/*   fdf_altitudemod.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 16:36:52 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/25 14:56:30 by eschussl         ###   ########.fr       */
+/*   Created: 2024/03/25 14:51:40 by eschussl          #+#    #+#             */
+/*   Updated: 2024/03/25 14:53:11 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "fdf.h"
 
-int	fdf_color_shift(double index, int color0, int color1)
+void	fdf_altitudemod(t_main *main, int i)
 {
-	int	res;
-
-	res = (int)(((color1 & 0xFF) - (color0 & 0xFF)) * (index) + (color0 & 0xFF)) & 0xff; 
-	res += (int)(((color1 & 0xFF00) - (color0 & 0xFF00)) * (index) + (color0 & 0xFF00)) & 0xff00; 
-	res += (int)(((color1 & 0xFF0000) - (color0 & 0xFF0000)) * (index) + (color0 & 0xFF0000)) & 0xff0000;
-	return (res);
+	int x;
+	int y;
+	
+	y = 0;
+	while (y < main->map.info.height)
+	{
+		x = 0;
+			
+	}
 }

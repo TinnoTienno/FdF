@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 21:06:51 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/16 23:33:12 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/25 13:57:48 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	fdf_display_map(t_main *main, char c)
 			x = 0;
 			while (x < main->map.info.width)
 			{
-				printf("%.0f ", main->map.vertices[y][x].x);
+				printf("%.0f ", main->map.vertices[y][x].values[0][0]);
 				x++;
 			}
 			printf("\n");
@@ -40,7 +40,7 @@ void	fdf_display_map(t_main *main, char c)
 			x = 0;
 			while (x < main->map.info.width)
 			{
-				printf("%.0f ", main->map.vertices[y][x].y);
+				printf("%.0f ", main->map.vertices[y][x].values[0][1]);
 				x++;
 			}
 			printf("\n");
@@ -54,7 +54,7 @@ void	fdf_display_map(t_main *main, char c)
 			x = 0;
 			while (x < main->map.info.width)
 			{
-				printf("%.0f ", main->map.vertices[y][x].z);
+				printf("%.0f ", main->map.vertices[y][x].values[0][2]);
 				x++;
 			}
 			printf("\n");

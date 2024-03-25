@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_color_shift.c                                  :+:      :+:    :+:   */
+/*   fdf_mouse_scroll.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 16:36:52 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/25 14:56:30 by eschussl         ###   ########.fr       */
+/*   Created: 2024/03/21 16:10:24 by eschussl          #+#    #+#             */
+/*   Updated: 2024/03/21 16:32:47 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "fdf.h"
 
-int	fdf_color_shift(double index, int color0, int color1)
+int	fdf_mouse_scroll(int button, int x, int y, t_main *main)
 {
-	int	res;
-
-	res = (int)(((color1 & 0xFF) - (color0 & 0xFF)) * (index) + (color0 & 0xFF)) & 0xff; 
-	res += (int)(((color1 & 0xFF00) - (color0 & 0xFF00)) * (index) + (color0 & 0xFF00)) & 0xff00; 
-	res += (int)(((color1 & 0xFF0000) - (color0 & 0xFF0000)) * (index) + (color0 & 0xFF0000)) & 0xff0000;
-	return (res);
+	(void) x;
+	(void) y;
+	if (button == 4)
+		main->event.scaling = main->event.scaling * 1.1;
+	else if (button == 5)
+		main->event.scaling = main->event.scaling / 1.1;
+	return (0);
 }

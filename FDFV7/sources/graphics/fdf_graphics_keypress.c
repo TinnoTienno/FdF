@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:32:22 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/21 15:47:48 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/25 14:53:25 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	fdf_graphics_keypress(int keycode, t_main *main)
 {
-	// printf("%d\n", keycode);
 	if (keycode == XK_Escape)
 		fdf_graphics_close(main);
 	else if (keycode == XK_c || keycode == XK_C)
@@ -25,5 +24,9 @@ int	fdf_graphics_keypress(int keycode, t_main *main)
 		fdf_event(main, 'l');
 	else if (keycode == XK_Up || keycode == XK_Down || keycode == XK_Left || keycode == XK_Right)
 		fdf_move(main, keycode);
+	else if (keycode == XK_8)
+		fdf_altitudemod(main, 1);
+	else if (keycode == XK_2)
+		fdf_altitudemod(main, 0);
 	return (0);
 }

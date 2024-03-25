@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 23:21:33 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/16 23:25:05 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/25 13:57:22 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	fdf_normilizing(t_main *main)
 		x = 0;
 		while (x < main->map.info.width)
 		{
-			main->map.vertices[y][x].y = main->map.vertices[y][x].y - heightcenter;
-			main->map.vertices[y][x].x = main->map.vertices[y][x].x - widthcenter;
+			main->map.vertices[y][x].values[0][1] = main->map.vertices[y][x].values[0][1] - heightcenter;
+			main->map.vertices[y][x].values[0][0] = main->map.vertices[y][x].values[0][0] - widthcenter;
 			x++;
 		}
 		y++;

@@ -6,7 +6,7 @@
 #    By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 18:13:27 by eschussl          #+#    #+#              #
-#    Updated: 2024/03/21 15:50:23 by eschussl         ###   ########.fr        #
+#    Updated: 2024/03/25 14:36:33 by eschussl         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,8 @@ SRCS			=	main.c\
 					fdf_main_init.c\
 					fdf_colors_init.c\
 					fdf_image_init.c\
-					fdf_display_init.c)\
+					fdf_display_init.c\
+					fdf_scale_init.c)\
 					$(addprefix $(GRAPHICS_PATH),\
 					fdf_graphics.c\
 					fdf_graphics_close.c\
@@ -61,7 +62,10 @@ SRCS			=	main.c\
 					fdf_clean_win.c\
 					fdf_push_loop.c\
 					fdf_offset.c\
-					fdf_move.c)\
+					fdf_move.c\
+					fdf_mouse_scroll.c\
+					fdf_scaling.c\
+					fdf_isometric.c)\
 					$(addprefix $(EVENT_PATH),\
 					fdf_event.c)\
 					$(addprefix $(COLOR_PATH),\
