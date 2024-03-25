@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 17:53:34 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/21 15:30:13 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/25 15:41:24 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void	fdf_mapping(t_main *main)
 		fdf_error(main, "Error in fdf_mapping function : Malloc unitialized\n");
 	fdf_vertices(main);
 	fdf_normilizing(main);
-	fdf_colors_set(main);
+	// fdf_colors_set(main);
 	// fdf_display_map(main, 'y');
 }

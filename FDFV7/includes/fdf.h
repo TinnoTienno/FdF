@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 16:30:27 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/25 14:44:00 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/25 15:18:37 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,6 +178,7 @@ void	fdf_move(t_main *main, int keycode);
 int		fdf_mouse_scroll(int button, int x, int y, t_main *main);
 int		fdf_scaling(t_main *main, double data);
 void	fdf_isometric(t_main *main);
+void	fdf_altitudemod(t_main *main, int i);
 
 void	fdf_event(t_main *main, int c);
 void	my_mlx_pixel_put(t_main *main, int x, int y, int color);

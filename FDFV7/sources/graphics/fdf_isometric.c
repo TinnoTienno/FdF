@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 14:05:32 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/25 14:46:07 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/25 15:34:51 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	fdf_isometric(t_main *main)
 		while (x < main->map.info.width)
 		{
 			VALUE(VERTEX(x, y), 1, 0) = (VALUE(VERTEX(x, y), 0, 0) - VALUE(VERTEX(x, y), 0, 1)) * cos(M_PI / 6);
-			VALUE(VERTEX(x, y), 1, 1) = (VALUE(VERTEX(x, y), 0, 0) + VALUE(VERTEX(x, y), 0, 1)) * sin(M_PI / 6) - VALUE(VERTEX(x, y), 0, 2);
+			VALUE(VERTEX(x, y), 1, 1) = (VALUE(VERTEX(x, y), 0, 0) + VALUE(VERTEX(x, y), 0, 1)) * sin(M_PI / 6) - VALUE(VERTEX(x, y), 1, 2);
 			x++;
 		}
 		y++;

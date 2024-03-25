@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 20:04:52 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/25 13:56:44 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/25 15:36:11 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static t_vertex fdf_vertex(int x, int y, char *str, int *index)
 	new.values[0][1] = y;
 	new.values[0][2] = 0;
 	new.values[0][2] = ft_atolle(str, index);
+	new.values[1][2] = new.values[0][2];
 	new.color = 0xFFFFFF;
 	if (str[*index] == ',')
 	{	

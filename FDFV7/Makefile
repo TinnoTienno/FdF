@@ -6,7 +6,7 @@
 #    By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 18:13:27 by eschussl          #+#    #+#              #
-#    Updated: 2024/03/25 14:36:33 by eschussl         ###   ########.fr        #
+#    Updated: 2024/03/25 15:41:10 by eschussl         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,8 +40,7 @@ SRCS			=	main.c\
 					fdf_parsing.c\
 					fdf_map_info.c\
 					fdf_vertices.c\
-					fdf_normalizing.c\
-					fdf_colors_set.c)\
+					fdf_normalizing.c)\
 					$(addprefix $(DISPLAY_PATH),\
 					fdf_display_list.c\
 					fdf_display_map.c\
@@ -51,7 +50,6 @@ SRCS			=	main.c\
 					fdf_main_init.c\
 					fdf_colors_init.c\
 					fdf_image_init.c\
-					fdf_display_init.c\
 					fdf_scale_init.c)\
 					$(addprefix $(GRAPHICS_PATH),\
 					fdf_graphics.c\
@@ -65,13 +63,13 @@ SRCS			=	main.c\
 					fdf_move.c\
 					fdf_mouse_scroll.c\
 					fdf_scaling.c\
-					fdf_isometric.c)\
+					fdf_isometric.c\
+					fdf_altitudemod.c)\
 					$(addprefix $(EVENT_PATH),\
 					fdf_event.c)\
 					$(addprefix $(COLOR_PATH),\
 					fdf_color_shift.c\
-					fdf_color2_vertex.c\
-					fdf_colors_set.c)\
+					fdf_color2_vertex.c)\
 
 OBJS_PATH		=	objects/
 OBJS			=	$(addprefix $(OBJS_PATH),$(SRCS:.c=.o))

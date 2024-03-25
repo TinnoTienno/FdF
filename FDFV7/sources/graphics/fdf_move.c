@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 15:48:06 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/21 15:52:32 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/25 15:21:24 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	fdf_move(t_main *main, int keycode)
 	else if (keycode == XK_Down)
 		main->image.center_y -= main->file_info.window_height / 100;
 	else if (keycode == XK_Left)
-		main->image.center_x -= main->file_info.window_width / 100;
+		main->image.center_x += main->file_info.window_width / 100;
 	else if (keycode == XK_Right)
-		main->image.center_x += main->file_info.window_width / 100;	
+		main->image.center_x -= main->file_info.window_width / 100;
 }
