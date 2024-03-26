@@ -6,7 +6,7 @@
 #    By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 18:13:27 by eschussl          #+#    #+#              #
-#    Updated: 2024/03/25 15:41:10 by eschussl         ###   ########.fr        #
+#    Updated: 2024/03/25 16:00:14 by eschussl         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,8 @@ SRCS			=	main.c\
 					fdf_mouse_scroll.c\
 					fdf_scaling.c\
 					fdf_isometric.c\
-					fdf_altitudemod.c)\
+					fdf_altitudemod.c\
+					fdf_draw_lines.c)\
 					$(addprefix $(EVENT_PATH),\
 					fdf_event.c)\
 					$(addprefix $(COLOR_PATH),\

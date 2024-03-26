@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 15:38:10 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/25 15:38:34 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/25 17:50:04 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	fdf_draw_lines(t_main *main)
 {
-	
+	(void) main;
 }

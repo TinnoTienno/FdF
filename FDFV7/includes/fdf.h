@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 16:30:27 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/25 15:18:37 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/26 13:15:49 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,10 @@ typedef struct s_event
 	int		color_mode;
 	int		view_mode;
 	int		line_mode;
+	double	x_angle;
+	double	z_angle;
 	double	scaling;
+	double	z_mod;
 }	t_event;
 
 typedef struct s_main
@@ -179,12 +182,13 @@ int		fdf_mouse_scroll(int button, int x, int y, t_main *main);
 int		fdf_scaling(t_main *main, double data);
 void	fdf_isometric(t_main *main);
 void	fdf_altitudemod(t_main *main, int i);
+void	fdf_draw_lines(t_main *main);
 
 void	fdf_event(t_main *main, int c);
 void	my_mlx_pixel_put(t_main *main, int x, int y, int color);
 
 int		fdf_color_shift(double index, int color0, int color1);
-int		fdf_color2_vertex(double z, t_main *main);
+int		fdf_color2_vertex(t_main *main, t_vertex vertex);
 void	fdf_color_parsing(t_main *main);
 
 #endif

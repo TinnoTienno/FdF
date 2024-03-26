@@ -6,20 +6,21 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 15:22:42 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/20 18:02:50 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/26 13:22:08 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	fdf_color2_vertex(double z, t_main *main)
+int	fdf_color2_vertex(t_main *main, t_vertex vertex)
 {
 	int color;
 	double	index;
+	double	z;
 
 	color = 0;
 	index = 0;
-
+	z = VALUE(vertex, 0, 2);
 	if (z >= main->colors.bottom_level && z <= main->colors.shallow_sea_level)
 	{
 		index = (z - main->colors.bottom_level) / (main->colors.shallow_sea_level - main->colors.bottom_level);
