@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 14:39:52 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/25 17:30:18 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/26 17:06:48 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	fdf_graphics(t_main *main)
 {
+	fdf_image_z_init(main);
 	main->mlx = mlx_init();
 	if (!main->mlx)
 		fdf_error(main, "Error in mlx_init function : Malloc\n");

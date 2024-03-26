@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_clean_win.c                                    :+:      :+:    :+:   */
+/*   fdf_image_z_init.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/17 19:34:45 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/26 17:00:38 by eschussl         ###   ########.fr       */
+/*   Created: 2024/03/26 16:21:29 by eschussl          #+#    #+#             */
+/*   Updated: 2024/03/26 17:45:16 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	fdf_clean_win(t_main *main)
+void	fdf_image_z_init(t_main *main)
 {
-	int		x;
-	int		y;
-
-
+	int y;
+	int	x;
+	
+	main->image_z = malloc(sizeof(int*) * main->file_info.window_height);
 	y = -1;
-	while (y < main->file_info.window_height)
+	while (++y < main->file_info.window_height)
 	{
+		main->image_z[y] = malloc(sizeof(int) * main->file_info.window_width);
 		x = -1;
 		while (++x < main->file_info.window_width)
-			my_mlx_pixel_put(main, x, y, 0);
-		++y;
+			main->image_z[y][x] = -999999999;
 	}
 }

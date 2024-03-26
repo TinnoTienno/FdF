@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 00:07:35 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/20 18:10:21 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/26 15:01:06 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	fdf_colors_init(t_main *main)
 	main->colors.color_top = 0xFFFFFF;
 	main->colors.bottom_level = main->map.info.zmin;
 	main->colors.shallow_sea_level = main->map.info.zmin / 1000 * 3 ;
+	if (main->colors.shallow_sea_level == main->colors.bottom_level)
+		 main->colors.bottom_level -= 1;
 	main->colors.beach_level = 5;
 	main->colors.greenland_level = main->map.info.zmax / 100 * 1;
 	main->colors.moutain_level = main->map.info.zmax / 100 * 30;

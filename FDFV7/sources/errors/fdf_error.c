@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 16:48:50 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/17 17:09:10 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/26 17:07:14 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	fdf_error(t_main *main, char *error_message)
 			free (main->display[y]);
 		free (main->display);
 	}
+	if (main->image_z)
+		fdf_image_z_free(main);
 	if (error_message && error_message[0])
 		exit (EXIT_FAILURE);
 }
