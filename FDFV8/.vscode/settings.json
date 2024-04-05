@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"fdf.h": "c",
+		"cmath": "c",
+		"math.h": "c"
+	}
+}
