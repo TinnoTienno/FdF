@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 14:55:44 by eschussl          #+#    #+#             */
-/*   Updated: 2024/04/02 15:02:41 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/05 19:03:17 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 t_vertex	**fdf_normilizing(t_main *main)
 {
-	int		x;
-	int		y;
-	double	widthcenter;
-	double	heightcenter;
+	int			x;
+	int			y;
+	double		widthcenter;
+	double		heightcenter;
 	t_vertex	**vertices;
 
 	widthcenter = (main->minfo.width - 1) / 2;
@@ -26,7 +26,7 @@ t_vertex	**fdf_normilizing(t_main *main)
 	y = 0;
 	while (y < main->minfo.height)
 	{
-		x =0;
+		x = 0;
 		while (x < main->minfo.width)
 		{
 			vertices[y][x].val[0][1] = vertices[y][x].val[0][1] - heightcenter;

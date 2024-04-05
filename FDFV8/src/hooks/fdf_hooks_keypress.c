@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 18:26:34 by eschussl          #+#    #+#             */
-/*   Updated: 2024/04/04 21:30:50 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/05 18:44:54 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <X11/keysym.h>
 #include <math.h>
 
-static int fdf_is_mod(int keycode, t_main *main)
+static int	fdf_is_mod(int keycode, t_main *main)
 {
 	if (keycode == XK_c || keycode == XK_C)
 	{
@@ -33,6 +33,7 @@ static int fdf_is_mod(int keycode, t_main *main)
 	}
 	return (0);
 }
+
 static int	fdf_is_arrow(int keycode, t_main *main)
 {
 	if (keycode == XK_Down)

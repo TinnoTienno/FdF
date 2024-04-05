@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 16:21:29 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/26 17:45:16 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/02 17:12:10 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	fdf_image_z_init(t_main *main)
 		main->image_z[y] = malloc(sizeof(int) * main->file_info.window_width);
 		x = -1;
 		while (++x < main->file_info.window_width)
-			main->image_z[y][x] = -999999999;
+			main->image_z[y][x] = -9999999;
 	}
 }

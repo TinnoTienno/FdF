@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 23:15:37 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/26 15:07:59 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/27 12:04:50 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	fdf_main_init(t_main *main)
 	main->file_info.window_border = 0;
 	main->file_info.window_height = 0;
 	main->file_info.window_width = 0;
+	main->file_info.filename = NULL;
 	main->list= NULL;
 	main->map.info.height = 0;
 	main->map.info.width = 0;
@@ -41,4 +42,5 @@ void	fdf_main_init(t_main *main)
 	main->event.z_angle = 0.017453;
 	main->event.z_mod = 100;
 	main->display = NULL;
+	main->image_z = NULL;
 }

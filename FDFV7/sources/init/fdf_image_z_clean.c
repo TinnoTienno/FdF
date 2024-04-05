@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 17:07:54 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/26 17:39:58 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/02 17:15:32 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ void	fdf_image_z_clean(t_main *main)
 	{
 		x = -1;
 		while (++x < main->file_info.window_width)
-			main->image_z[y][x] = -999999999;
+			main->image_z[y][x] = -2147483648;
 	}
 }

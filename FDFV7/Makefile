@@ -6,14 +6,14 @@
 #    By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 18:13:27 by eschussl          #+#    #+#              #
-#    Updated: 2024/03/26 17:30:59 by eschussl         ###   ########.fr        #
+#    Updated: 2024/04/02 16:56:20 by eschussl         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	fdf
 
 CC				=	@cc
-CFLAGS			=	-Wall -Wextra -Werror -g3
+CFLAGS			=	-Wall -Wextra -Werror -g3 -pg
 LFLAGS			= 	-lXext -lX11 -lz -lm
 
 LIBFT_PATH		=	libft/
@@ -68,7 +68,6 @@ SRCS			=	main.c\
 					fdf_scaling.c\
 					fdf_isometric.c\
 					fdf_altitudemod.c\
-					fdf_draw_lines.c\
 					fdf_draw_vertex.c\
 					fdf_should_draw.c\
 					fdf_put_z.c\

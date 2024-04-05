@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 19:34:45 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/26 17:00:38 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/02 17:18:47 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@ void	fdf_clean_win(t_main *main)
 
 
 	y = -1;
-	while (y < main->file_info.window_height)
+	while (++y < main->file_info.window_height)
 	{
 		x = -1;
 		while (++x < main->file_info.window_width)
-			my_mlx_pixel_put(main, x, y, 0);
-		++y;
+		{
+			if (main->image_z[y][x] != -2147483648)
+				my_mlx_pixel_put(main, x, y, 0);
+		}
 	}
 }

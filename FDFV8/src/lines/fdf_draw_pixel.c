@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_print_list.c                                   :+:      :+:    :+:   */
+/*   fdf_draw_pixel.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/02 13:32:35 by eschussl          #+#    #+#             */
-/*   Updated: 2024/04/02 13:38:01 by eschussl         ###   ########.fr       */
+/*   Created: 2024/04/05 16:30:25 by eschussl          #+#    #+#             */
+/*   Updated: 2024/04/05 18:59:00 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	fdf_print_list(t_parsing *pars)
+void	fdf_draw_pixel(t_main *main, int x, int y, int color)
 {
-	t_parsing *tmp;
-	
-	tmp = pars;
-	while (tmp)
-	{
-		printf("%s\n", tmp->line);
-		tmp = tmp->next;
-	}
+	char	*dst;
+
+	dst = main->image.addr + y * main->image.line_length \
+		+ x * (main->image.bits_per_pixel / 8);
+		*(unsigned int *)dst = color;
 }

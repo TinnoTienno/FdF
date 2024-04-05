@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 23:24:48 by eschussl          #+#    #+#             */
-/*   Updated: 2024/04/05 12:32:48 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/05 19:06:33 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_minfo		t_minfo;
 typedef struct s_event		t_event;
 typedef struct s_colors		t_colors;
 typedef struct s_parsing	t_parsing;
+typedef struct s_line		t_line;
 typedef struct s_main		t_main;
 
 struct s_finfo
@@ -79,21 +80,21 @@ struct s_minfo
 	int	height;
 	int	zmin[2];
 	int	zmax[2];
-	int xmin;
-	int xmax;
+	int	xmin;
+	int	xmax;
 	int	ymin;
-	int ymax;
+	int	ymax;
 };
 
 struct s_event
 {
-	int	colormode;
-	int	viewmode;
-	int	linemode;
-	int	x_angle;
-	int	z_angle;
+	int		colormode;
+	int		viewmode;
+	int		linemode;
+	int		x_angle;
+	int		z_angle;
 	double	scaling;
-	int	z_mod;
+	int		z_mod;
 };
 
 struct s_colors
@@ -114,8 +115,20 @@ struct s_colors
 
 struct	s_parsing
 {
-	void *next;
-	char *line;
+	void	*next;
+	char	*line;
+};
+
+struct	s_line
+{
+	int	dx;
+	int	dy;
+	int	sx;
+	int	sy;
+	int	err;
+	int	err2;
+	int	x0;
+	int	y0;
 };
 
 struct	s_main
@@ -130,6 +143,7 @@ struct	s_main
 	t_event		event;
 	t_colors	colors;
 	t_parsing	*parsing;
+	t_line		line;
 };
 
 /*##########################################################################
@@ -147,7 +161,6 @@ int			fdf_color_shift(double index, int color0, int color1);
 void		fdf_scale_init(t_main *main);
 void		fdf_image_init(t_main *main);
 void		fdf_image_z_init(t_main *main);
-
 
 /*###########
 #	FREE	#
@@ -168,42 +181,36 @@ void		fdf_vertices(t_main *main);
 t_vertex	**fdf_normilizing(t_main *main);
 
 /*###########
-#   PRINT	#
-###########*/
-
-void	fdf_print_list(t_parsing *pars);
-void	fdf_print_vertices(t_main *main, char c);
-
-/*###########
 #  GRAPHICS	#
 ###########*/
 
-void	fdf_graphics(t_main *main);
-void	fdf_draw_first_points(t_main *main);
-void 	fdf_draw_points(t_main *main);
-int		fdf_offsety(t_main *main, double y);
-int		fdf_offsetx(t_main *main, double x);
-int		fdf_scaling(t_main *main, double data);
-void	fdf_scaling_first(t_main *main);
-void	fdf_put_pixel(t_main *main, t_vertex vertex);
-void	fdf_clean_win(t_main *main);
+void		fdf_graphics(t_main *main);
+void		fdf_draw_first_points(t_main *main);
+void		fdf_draw_points(t_main *main);
+int			fdf_offsety(t_main *main, double y);
+int			fdf_offsetx(t_main *main, double x);
+int			fdf_scaling(t_main *main, double data);
+void		fdf_scaling_first(t_main *main);
+void		fdf_put_pixel(t_main *main, t_vertex *vertex);
+void		fdf_clean_win(t_main *main);
 
 /*###########
 #   HOOKS	#
 ###########*/
 
-int		fdf_hooks_keypress(int keycode, t_main *main);
-void	fdf_hooks_close(t_main *main);
-void	fdf_event(t_main *main, int c);
-int		fdf_push_loop(t_main *main);
-void	fdf_should_draw(t_main *main, t_vertex vertex);
-int		fdf_angle(int keycode, t_main *main);
-int		fdf_mouse_scroll(int button, int x, int y, t_main *main);
+int			fdf_hooks_keypress(int keycode, t_main *main);
+void		fdf_hooks_close(t_main *main);
+void		fdf_event(t_main *main, int c);
+int			fdf_push_loop(t_main *main);
+int			fdf_angle(int keycode, t_main *main);
+int			fdf_mouse_scroll(int button, int x, int y, t_main *main);
 
 /*###########
 #   LINES	#
 ###########*/
 
-void	fdf_lines(t_main *main);
-void	fdf_draw_line(t_main *main, t_vertex v1, t_vertex v2);
+void		fdf_lines(t_main *main);
+void		fdf_draw_line(t_main *main, t_vertex *v1, t_vertex *v2);
+void		fdf_draw_pixel(t_main *main, int x, int y, int color);
+
 #endif

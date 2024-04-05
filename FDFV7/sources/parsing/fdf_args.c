@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 15:42:10 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/16 19:19:23 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/27 12:05:29 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	fdf_args(t_main *main, char **args)
 		fdf_error(main, "Error in fdf_error_args function : Malloc\n");
 	argscount = ft_countword(main->file_info.args, ' ');
 	if (argscount > 3)
-		fdf_error(main, "Error in fdf_error_args function : Too many arguments");
+		fdf_error(main, "Error in fdf_error_args function : Too many arguments\n");
 	main->file_info.filename = ft_firstword(main->file_info.args, ' ');
 	if (!main->file_info.filename)
 		fdf_error(main, "Error in fdf_error_args function : Malloc\n");

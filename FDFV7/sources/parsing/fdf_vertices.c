@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 20:04:52 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/26 14:56:27 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/02 14:37:26 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	fdf_vertex_error(char *str)
 	if (str[i] != ',')
 		return (2);
 	i++;
-	while (str[i] && (ft_isalnum(str[i]) || (str[i] >= 'a' && str[i] <= 'f') || (str[i] >= 'A' && str[i] <= 'f')))
+	while (str[i] && (ft_isalnum(str[i]) || (str[i] >= 'a' && str[i] <= 'f') || (str[i] >= 'A' && str[i] <= 'F')))
 		i++;
 	if (!str[i] || str[i] == '\n' || str[i] == ' ')
 		return (0);

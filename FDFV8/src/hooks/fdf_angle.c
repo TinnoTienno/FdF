@@ -6,14 +6,13 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 21:14:44 by eschussl          #+#    #+#             */
-/*   Updated: 2024/04/04 21:55:13 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/05 18:47:12 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include <math.h>
 #include <X11/keysym.h>
-
 
 static void	fdf_w(t_main *main)
 {
@@ -50,6 +49,7 @@ static void	fdf_a(t_main *main)
 			main->event.z_angle += 90;
 	}
 }
+
 static void	fdf_s(t_main *main)
 {
 	if (main->event.viewmode == 0)
@@ -67,6 +67,7 @@ static void	fdf_s(t_main *main)
 			main->event.x_angle += 90;
 	}
 }
+
 static void	fdf_d(t_main *main)
 {
 	if (main->event.viewmode == 0)
@@ -84,6 +85,7 @@ static void	fdf_d(t_main *main)
 			main->event.z_angle -= 90;
 	}
 }
+
 int	fdf_angle(int keycode, t_main *main)
 {
 	if (keycode == XK_w || keycode == XK_W)

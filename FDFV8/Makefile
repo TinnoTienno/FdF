@@ -6,7 +6,7 @@
 #    By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 18:13:27 by eschussl          #+#    #+#              #
-#    Updated: 2024/04/05 12:34:13 by eschussl         ###   ########.fr        #
+#    Updated: 2024/04/05 19:09:11 by eschussl         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,6 @@ SRCS_PATH		=	src/
 BONUS_PATH		=	bonus/
 INIT_PATH		=	init/
 FREE_PATH		=	free/
-PRINT_PATH		=	print/
 PARS_PATH		=	parsing/
 GRAPH_PATH		=	graphics/
 HOOKS_PATH		=	hooks/
@@ -41,15 +40,12 @@ SRCS			=	main.c\
 					fdf_map_info.c\
 					fdf_vertices.c\
 					fdf_normilizing.c)\
-					$(addprefix $(PRINT_PATH),fdf_print_list.c\
-					fdf_print_vertices.c)\
 					$(addprefix $(INIT_PATH),fdf_colors_init.c\
 					fdf_scale_init.c\
 					fdf_image_init.c\
 					fdf_image_z_init.c)\
 					$(addprefix $(GRAPH_PATH),fdf_graphics.c\
 					fdf_draw_first_points.c\
-					fdf_draw_vertex.c\
 					fdf_offset.c\
 					fdf_scaling.c\
 					fdf_put_pixel.c\
@@ -57,12 +53,12 @@ SRCS			=	main.c\
 					$(addprefix $(HOOKS_PATH),fdf_hooks_close.c\
 					fdf_hooks_keypress.c\
 					fdf_angle.c\
-					fdf_should_draw.c\
 					fdf_push_loop.c\
 					fdf_events.c\
 					fdf_mouse_scroll.c)\
 					$(addprefix $(LINES_PATH),fdf_lines.c\
-					fdf_draw_line.c)\
+					fdf_draw_line.c\
+					fdf_draw_pixel.c)\
 
 					
 SRCS_BONUS		=	main.c\
@@ -74,15 +70,12 @@ SRCS_BONUS		=	main.c\
 					fdf_map_info.c\
 					fdf_vertices.c\
 					fdf_normilizing.c)\
-					$(addprefix $(PRINT_PATH),fdf_print_list.c\
-					fdf_print_vertices.c)\
 					$(addprefix $(INIT_PATH),fdf_colors_init.c\
 					fdf_scale_init.c\
 					fdf_image_init.c\
 					fdf_image_z_init.c)\
 					$(addprefix $(GRAPH_PATH),fdf_graphics.c\
 					fdf_draw_first_points.c\
-					fdf_draw_vertex.c\
 					fdf_offset.c\
 					fdf_scaling.c\
 					fdf_put_pixel.c\
@@ -90,12 +83,12 @@ SRCS_BONUS		=	main.c\
 					$(addprefix $(HOOKS_PATH),fdf_hooks_close.c\
 					fdf_hooks_keypress.c\
 					fdf_push_loop.c\
-					fdf_should_draw.c\
 					fdf_angle.c\
 					fdf_events.c\
 					fdf_mouse_scroll.c)\
 					$(addprefix $(LINES_PATH),fdf_lines.c\
-					fdf_draw_line.c)\
+					fdf_draw_line.c\
+					fdf_draw_pixel.c)\
 
 OBJS_PATH		=	obj/
 OBJS			=	$(addprefix $(OBJS_PATH),$(SRCS:.c=.o))
@@ -113,7 +106,6 @@ $(OBJS_PATH)%.o: $(SRCS_PATH)%.c $(INC_PATH)fdf.h
 	@mkdir -p $(OBJS_PATH)$(FREE_PATH)
 	@mkdir -p $(OBJS_PATH)$(PARS_PATH)
 	@mkdir -p $(OBJS_PATH)$(BONUS_PATH)
-	@mkdir -p $(OBJS_PATH)$(PRINT_PATH)
 	@mkdir -p $(OBJS_PATH)$(GRAPH_PATH)
 	@mkdir -p $(OBJS_PATH)$(HOOKS_PATH)
 	@mkdir -p $(OBJS_PATH)$(LINES_PATH)

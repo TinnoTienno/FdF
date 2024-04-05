@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 16:30:27 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/26 17:30:45 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/28 21:51:24 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,16 @@ typedef struct s_main
 	int			**image_z;
 }				t_main;
 
+typedef struct	s_lines
+{
+	int dx;
+    int dy;
+	int err;
+    int sx;
+	int	sy;
+    int e2;
+}	t_lines;
+
 /*##########################################################################
 #                                                                           #
 #                                 FUNCTIONS                                 #
@@ -196,6 +206,5 @@ void			fdf_event(t_main *main, int c);
 
 int				fdf_color_shift(double index, int color0, int color1);
 int				fdf_color2_vertex(t_main *main, t_vertex vertex);
-void			fdf_color_parsing(t_main *main);
 
 #endif

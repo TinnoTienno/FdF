@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 18:34:49 by eschussl          #+#    #+#             */
-/*   Updated: 2024/04/04 21:42:01 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/05 18:45:13 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,23 @@ static void	fdf_cmod(t_main *main)
 static void	fdf_vmod(t_main *main)
 {
 	if (main->event.viewmode == 0)
+	{
+		main->event.x_angle = 0;
 		main->event.viewmode = 1;
+	}
 	else
+	{
 		main->event.viewmode = 0;
-	main->event.x_angle = 0;
+		main->event.x_angle = 90;
+	}
 	main->event.z_angle = 0;
 }
+
 static void	fdf_lmod(t_main *main)
 {
 	if (main->event.linemode == 0)
+		main->event.linemode = 2;
+	else if (main->event.linemode == 2)
 		main->event.linemode = 1;
 	else
 		main->event.linemode = 0;

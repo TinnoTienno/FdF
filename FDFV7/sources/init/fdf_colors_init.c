@@ -6,20 +6,27 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 00:07:35 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/26 15:01:06 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/04 15:30:02 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-// void	fdf_colors_adjustement(t_main *main)
-// {
-// 	// printf("info color : %x, depth : %d\n", main->colors.color_deepsea, main->map.info.zmin);
-// 	// printf("info color : %x, depth : %f\n", main->colors.color_sealevel,main->colors.sea_level);
-// 	// printf("info color : %x, depth : %f\n",main->colors.color_beach,main->colors.beach_level);
-// 	// printf("info color : %x, depth : %f\n",main->colors.color_moutain,main->colors.moutain_level);
-// 	// printf("info color : %x, depth : %d\n",main->colors.color_top,main->map.info.zmax);
-// }
+static void	fdf_color_parsing(t_main *main)
+{
+	int	y;
+	int	x;
+	t_vertex **vertices;
+
+	y = -1;
+	vertices = main->map.vertices;
+	while (++y < main->map.info.height)
+	{
+		x = -1;
+		while (++x < main->map.info.width)
+		vertices[y][x].colormod = fdf_color2_vertex(main, vertices[y][x]);
+	}
+}
 
 void	fdf_colors_init(t_main *main)
 {
@@ -37,5 +44,5 @@ void	fdf_colors_init(t_main *main)
 	main->colors.greenland_level = main->map.info.zmax / 100 * 1;
 	main->colors.moutain_level = main->map.info.zmax / 100 * 30;
 	main->colors.top_level = main->map.info.zmax;
-	// fdf_colors_adjustement(main);
+	fdf_color_parsing(main);
 }

@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 00:42:29 by eschussl          #+#    #+#             */
-/*   Updated: 2024/04/05 12:35:01 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/05 18:54:09 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,16 @@ void	fdf_lines_next(t_main *main)
 		x = -1;
 		while (++x < main->minfo.width)
 		{
-			if (main->event.linemode == 2 && x < main->minfo.width - 1 && y < main->minfo.height - 1)
-				fdf_draw_line(main, main->vertices[y][x], main->vertices[y + 1][x + 1]);
+			if (main->event.linemode == 2 && x < main->minfo.width \
+				- 1 && y < main->minfo.height - 1)
+				fdf_draw_line(main, &main->vertices[y][x], \
+					&main->vertices[y + 1][x + 1]);
 			if (x < main->minfo.width - 1)
-				fdf_draw_line(main, main->vertices[y][x], main->vertices[y][x + 1]);
+				fdf_draw_line(main, &main->vertices[y][x], \
+					&main->vertices[y][x + 1]);
 			if (y < main->minfo.height - 1)
-				fdf_draw_line(main, main->vertices[y][x], main->vertices[y + 1][x]);
+				fdf_draw_line(main, &main->vertices[y][x], \
+					&main->vertices[y + 1][x]);
 		}
 	}
 }

@@ -6,14 +6,15 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 12:21:23 by eschussl          #+#    #+#             */
-/*   Updated: 2024/04/02 14:51:06 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/05 19:01:32 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*For explanation, I chose to use a list to keep each line in so I could more easily 
-	study the number of lines \ columns before the final map*/
-	
+/*For explanation, I chose to use a list to keep each line in so I could 
+more easily	study the number of lines \ columns before the final map*/
+
 #include "fdf.h"
+
 static t_parsing	*fdf_new_node(t_main *main, int fd, t_parsing *previous)
 {
 	t_parsing	*new;
@@ -40,7 +41,7 @@ static void	fdf_list_build(t_main *main, int fd)
 {
 	t_parsing	*tmp;
 	t_parsing	*new;
-	
+
 	main->parsing->line = gnl(fd);
 	if (!main->parsing->line)
 		fdf_error(main, "Error in fdf_list_build function : Empty file\n");
@@ -64,9 +65,11 @@ static void	fdf_list_build(t_main *main, int fd)
 		tmp = new;
 	}
 }
+
 void	fdf_parsing(t_main *main)
 {
-	int fd;
+	int	fd;
+
 	fd = open(main->finfo.filename, O_RDONLY);
 	if (fd == -1)
 	{
@@ -78,5 +81,4 @@ void	fdf_parsing(t_main *main)
 		fdf_error(main, "Error in fdf_list_build function : Malloc\n");
 	fdf_list_build(main, fd);
 	close (fd);
-	// fdf_print_list(main->parsing);
 }

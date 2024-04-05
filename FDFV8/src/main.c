@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 23:21:25 by eschussl          #+#    #+#             */
-/*   Updated: 2024/04/04 22:07:16 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/05 19:04:13 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(int argc, char **argv)
 {
 	static t_main	main = {0};
-	
+
 	if (argc == 1)
 		return (fd_printf(2, "Error in Main function : No argument\n"), 1);
 	fdf_args(&main, &argv[1]);

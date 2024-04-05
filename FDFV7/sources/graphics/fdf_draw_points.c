@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 18:42:52 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/26 17:35:09 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/03/27 16:46:03 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ void	fdf_draw_points(t_main *main)
 		{
 			VERTEX(x, y) = fdf_clean_vertex(VERTEX(x, y));
 			VERTEX(x, y) = fdf_alt_mod_vertex(main, VERTEX(x, y));
-			VERTEX(x, y).colormod = fdf_color2_vertex(main, VERTEX(x, y));
 			VERTEX(x, y) = fdf_rotation_vertex(main, VERTEX(x, y));
 			VERTEX(x, y) = fdf_isometric_vertex(main, VERTEX(x, y));
 			VERTEX(x, y) = fdf_offsetting(main, VERTEX(x, y));
