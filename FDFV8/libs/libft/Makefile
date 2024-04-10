@@ -6,7 +6,7 @@
 #    By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 14:41:50 by eschussl          #+#    #+#              #
-#    Updated: 2024/03/28 23:54:31 by eschussl         ###   ########.fr        #
+#    Updated: 2024/04/10 14:13:21 by eschussl         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ SRCS		=	$(addprefix $(LST_PATH),\
 				$(addprefix $(READ_PATH),\
 				gwf.c\
 				$(addprefix $(GNL_PATH),\
-				gnl_utils.c gnl.c))\
+				gnl_static.c gnl.c gnl_read.c gnl_return.c))\
 				$(addprefix $(COUNT_PATH),\
 				ft_countword.c)\
 				$(addprefix $(FREE_PATH),\

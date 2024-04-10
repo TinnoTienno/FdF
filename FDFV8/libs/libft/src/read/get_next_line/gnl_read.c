@@ -1,50 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gnl_utils.c                                        :+:      :+:    :+:   */
+/*   gnl_read.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/17 15:13:59 by eschussl          #+#    #+#             */
-/*   Updated: 2024/04/04 23:26:51 by eschussl         ###   ########.fr       */
+/*   Created: 2024/04/10 14:06:45 by eschussl          #+#    #+#             */
+/*   Updated: 2024/04/10 15:47:10 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	gnl_flush(char *str_static, t_gnl_struct *stc, char *str)
-{
-	if (stc)
-	{
-		if (stc->str)
-			free (stc->str);
-		free (stc);
-	}
-	if (str_static)
-	{
-		free(str_static);
-		str_static = NULL;
-	}
-	fd_printf(2, str);
-	exit (EXIT_FAILURE);
-}
-
-void	gnl_exit(char *str_static, t_gnl_struct *stc)
-{
-	if (stc)
-	{
-		if (stc->str)
-			free (stc->str);
-		free (stc);
-	}
-	if (str_static)
-	{
-		free(str_static);
-		str_static = NULL;
-	}
-}
-
-t_gnl_struct	*gnl_stc_read(t_gnl_struct *stc, int fd, char *str_static)
+void	gnl_stc_read(t_gnl_struct *stc, int fd, int *error)
 {
 	char	buffer[GNL_BUFFER_SIZE];
 	int		reader;
@@ -52,11 +20,11 @@ t_gnl_struct	*gnl_stc_read(t_gnl_struct *stc, int fd, char *str_static)
 
 	reader = read(fd, &buffer, GNL_BUFFER_SIZE);
 	if (reader == -1)
-		gnl_flush(str_static, stc, "Error in GNL function : Malloc\n");
-	stc->read = reader;
+		return (gnl_error(stc, error, "Error in gnl_stc_read : Unread\n"));
 	strjoined = malloc(stc->size + reader + 1);
+	stc->read = reader;
 	if (!strjoined)
-		gnl_flush(str_static, stc, "Error in GNL function : Malloc\n");
+		return (gnl_error(stc, error, "Error in gnl_stc_read : Malloc\n"));
 	strjoined[stc->size + reader] = '\0';
 	while (--reader >= 0)
 	{
@@ -70,5 +38,14 @@ t_gnl_struct	*gnl_stc_read(t_gnl_struct *stc, int fd, char *str_static)
 	stc->size = stc->read + stc->size;
 	free (stc->str);
 	stc->str = strjoined;
-	return (stc);
+}
+
+void	gnl_read(t_gnl_struct *stc, int fd, int *error)
+{
+	while (stc->nlpos == -1 && stc->read == GNL_BUFFER_SIZE)
+	{
+		gnl_stc_read(stc, fd, error);
+		if (*error == -1)
+			return ;
+	}
 }

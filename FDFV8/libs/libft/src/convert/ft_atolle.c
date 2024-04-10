@@ -1,19 +1,17 @@
-/* ************************************************************************ */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoil.c                                         :+:      :+:    :+:   */
+/*   ft_atolle.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 18:07:39 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/11 18:08:47 by eschussl         ###   ########.fr       */
+/*   Created: 2024/04/10 15:50:27 by eschussl          #+#    #+#             */
+/*   Updated: 2024/04/10 15:51:03 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*Fonction atolle renvoie un long
-passe en argument un pointeur *i renvoyant l'index du caractere suivant le nombre lu.
-Si aucune valeur n'a ete lue *i renvoie -1 et la fonction 0;*/
 #include <stdio.h>
+
 long	ft_atolle(char *nptr, int *i)
 {
 	int	sign;
@@ -42,3 +40,7 @@ long	ft_atolle(char *nptr, int *i)
 		*i = -1;
 	return (res * sign);
 }
+
+/*Fonction atolle renvoie un long passe en argument un pointeur 
+*i renvoyant l'index du caractere suivant le nombre lu.
+Si aucune valeur n'a ete lue *i renvoie -1 et la fonction 0;*/

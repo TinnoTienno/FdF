@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:37:09 by eschussl          #+#    #+#             */
-/*   Updated: 2024/04/05 18:41:42 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/05 19:55:31 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	fdf_scaling_first(t_main *main)
 	int		bheight;
 
 	bwidth = main->finfo.w_width - main->finfo.w_border * 4;
-	printf("%d\n", bwidth);
 	bheight = main->finfo.w_height - main->finfo.w_border * 4;
 	scale_x = bwidth / (double)(main->minfo.xmax - main->minfo.xmin + 1);
 	scale_y = bheight / (double)(main->minfo.ymax - main->minfo.ymin + 1);

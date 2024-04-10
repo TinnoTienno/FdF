@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 14:49:14 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/16 21:37:13 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/10 15:48:57 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_puttab(char **tab)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (tab[i])

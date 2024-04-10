@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 18:39:59 by eschussl          #+#    #+#             */
-/*   Updated: 2024/04/05 18:46:47 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/05 19:46:00 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,21 @@ static void	fdf_rotation_vertex(t_main *main, t_vertex *vertex)
 	{
 		temp_y = vertex->val[1][1];
 		vertex->val[1][1] = 0 * vertex->val[1][0] + \
-			cos(main->event.x_angle * M_PI / 180) * vertex->val[1][1] \
-			- sin(main->event.x_angle * M_PI / 180) * vertex->val[1][2];
+			cos(main->event.x_angle * M_PI / 180) * vertex->val[1][1] - \
+				sin(main->event.x_angle * M_PI / 180) * vertex->val[1][2];
 		vertex->val[1][2] = 0 * vertex->val[1][0] + \
 			sin(main->event.x_angle * M_PI / 180) * temp_y + \
-			cos(main->event.x_angle * M_PI / 180) * vertex->val[1][2];
+				cos(main->event.x_angle * M_PI / 180) * vertex->val[1][2];
 	}
 	if (main->event.z_angle)
 	{
 		temp_x = vertex->val[1][0];
-			vertex->val[1][0] = cos(main->event.z_angle * M_PI / 180) \
-			* vertex->val[1][0] + sin(main->event.z_angle * M_PI / 180) * \
-			vertex->val[1][2];
+		vertex->val[1][0] = cos(main->event.z_angle * M_PI / 180) \
+			* vertex->val[1][0] + sin(main->event.z_angle * M_PI / 180) \
+				* vertex->val[1][2];
 		vertex->val[1][2] = cos(main->event.z_angle * M_PI / 180) \
-			* vertex->val[1][2] - sin(main->event.z_angle * M_PI / 180) * \
-			temp_x;
+			* vertex->val[1][2] - sin(main->event.z_angle * M_PI / 180) \
+				* temp_x;
 	}
 }
 
@@ -87,8 +87,8 @@ int	fdf_push_loop(t_main *main)
 		while (++x < main->minfo.width)
 		{
 			fdf_clean_vertex(&main->vertices[y][x]);
-			main->vertices[y][x].val[1][2] = \
-				main->vertices[y][x].val[1][2] * (main->event.z_mod) / 100;
+			main->vertices[y][x].val[1][2] = main->vertices[y][x].val[1][2] \
+				* (main->event.z_mod) / 100;
 			fdf_rotation_vertex(main, &main->vertices[y][x]);
 			fdf_isometric_vertex(main, &main->vertices[y][x]);
 			fdf_offsetting(main, &main->vertices[y][x]);

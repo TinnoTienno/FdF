@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 18:41:47 by eschussl          #+#    #+#             */
-/*   Updated: 2024/04/05 18:44:21 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/05 19:51:13 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	fdf_clean_win(t_main *main)
 			if (main->image_z[y][x] != -2147483648)
 			{
 				dst = main->image.addr + y * main->image.line_length \
-				+ x * (main->image.bits_per_pixel / 8);
+					+ x * (main->image.bits_per_pixel / 8);
 				*(unsigned int *)dst = 0;
 				main->image_z[y][x] = -2147483648;
 			}

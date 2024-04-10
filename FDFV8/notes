@@ -1,5 +1,10 @@
 Optimization de la partie graphique : valide
 Refonte pour un code plus clean : valide
 Ajout d'une vue parallele (sans perspective) : valide
-Ajout des lignes : 
-Ajout de l'affichage des lignes de couleur degrade : 
+Ajout des lignes : VALIDE
+Ajout de l'affichage des lignes de couleur degrade : VALIDE
+Reparer first draw : VALIDE
+Ajout du bouton croix : VALIDE
+Correction de funcheck : VALIDE
+Reparer le image_z : VALIDE
+Correction du line_obb : VALIDE

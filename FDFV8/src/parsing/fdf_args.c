@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 10:41:17 by eschussl          #+#    #+#             */
-/*   Updated: 2024/04/05 19:00:08 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/10 15:39:23 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static void	fdf_error_filename(t_main *main)
 	filename = main->finfo.args;
 	ifile = 0;
 	iname = 0;
+	if (!filename[0])
+		fdf_error(main, "Error in fdf_error_filename : no filename\n");
 	while (main->finfo.args[ifile])
 	{
 		if (main->finfo.args[ifile] == '/')
@@ -39,10 +41,11 @@ static void	fdf_error_filename(t_main *main)
 		ifile--;
 	if (ifile - iname <= 3)
 		fdf_error(main, "Error in fdf_error_filename : filename too short\n");
-	if (main->finfo.args[ifile] != 'f' || main->finfo.args[ifile - 1] != 'd' || \
-	main->finfo.args[ifile - 2] != 'f' || main->finfo.args[ifile - 3] != '.')
-		fdf_error(main, "Error in fdf_Error_filename function \
-			: Wrong extension\n");
+	if (main->finfo.args[ifile] != 'f' || main->finfo.args[ifile - 1] \
+		!= 'd' || main->finfo.args[ifile - 2] != 'f' || \
+			main->finfo.args[ifile - 3] != '.')
+		fdf_error(main, "Error in fdf_Error_filename function : \
+			Wrong extension\n");
 }
 
 void	fdf_args(t_main *main, char **args)

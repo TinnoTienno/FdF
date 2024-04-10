@@ -6,14 +6,14 @@
 #    By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 18:13:27 by eschussl          #+#    #+#              #
-#    Updated: 2024/04/05 19:09:11 by eschussl         ###   ########.fr        #
+#    Updated: 2024/04/10 15:35:02 by eschussl         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	fdf
 
 CC				=	@cc
-CFLAGS			=	-Wall -Wextra -Werror -g3
+CFLAGS			=	-Wall -Wextra -Werror -g3 -O3
 LFLAGS			= 	-lXext -lX11 -lz -lm
 
 LIBS_PATH		=	libs/
@@ -58,7 +58,8 @@ SRCS			=	main.c\
 					fdf_mouse_scroll.c)\
 					$(addprefix $(LINES_PATH),fdf_lines.c\
 					fdf_draw_line.c\
-					fdf_draw_pixel.c)\
+					fdf_draw_pixel.c\
+					fdf_line_oob.c)\
 
 					
 SRCS_BONUS		=	main.c\
@@ -88,7 +89,8 @@ SRCS_BONUS		=	main.c\
 					fdf_mouse_scroll.c)\
 					$(addprefix $(LINES_PATH),fdf_lines.c\
 					fdf_draw_line.c\
-					fdf_draw_pixel.c)\
+					fdf_draw_pixel.c\
+					fdf_line_oob.c)\
 
 OBJS_PATH		=	obj/
 OBJS			=	$(addprefix $(OBJS_PATH),$(SRCS:.c=.o))
@@ -141,5 +143,4 @@ bclean :
 re : fclean all
 
 .PHONY : all bonus clean fclean re
-# -include 
 

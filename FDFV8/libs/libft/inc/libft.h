@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:51:19 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/28 23:53:07 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/10 15:44:40 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ int				ft_atoi(const char *nptr);
 int				ft_atoi_base(const char *str, const char *base, int *i);
 char			*ft_itoa(int n);
 char			**ft_split(char const *s, char c);
-char 			*ft_argjoin(char **tab, char c);
+char			*ft_argjoin(char **tab, char c);
 long			ft_atolle(char *nptr, int *i);
 
 /*##############
@@ -136,26 +136,26 @@ char			*ft_strrchr(const char *s, int c);
 char			*ft_strtrim(char const *s1, char const *set);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strremovec(char *str, char c);
-char 			*ft_firstword(char *str, char c);
+char			*ft_firstword(char *str, char c);
 
 /*##############
 #     READ      #
  ##############*/
- 
-char	*gwf(int fd);
-char	*gnl(int fd);
+
+char			*gwf(int fd);
+char			*gnl(int fd, int *error);
 
 /*##############
 #     COUNT     #
  ##############*/
- 
-int	ft_countword(char const *s, char c);
+
+int				ft_countword(char const *s, char c);
 
 /*##############
 #     FREE      #
  ##############*/
- 
-void	ft_freectab(char **tab);
+
+void			ft_freectab(char **tab);
 
 /*##########################################################################
 #                                                                           #
@@ -247,7 +247,7 @@ int				ft_x_fd(t_printfstruct structure, unsigned int nb, int fd);
  ##########################################################################*/
 
 # ifndef GNL_BUFFER_SIZE
-#  define GNL_BUFFER_SIZE 1000
+#  define GNL_BUFFER_SIZE 10000
 # endif
 
 # ifndef GNL_ERROR
@@ -264,11 +264,13 @@ typedef struct s_gnl_struct
 	int		nlpos;
 	char	*str;
 	int		read;
+	char	*str_return;
+	char	*str_static;
 }	t_gnl_struct;
 
-char			*gnl(int fd);
-void			gnl_flush(char *str_static, t_gnl_struct *stc, char *str);
-t_gnl_struct	*gnl_stc_read(t_gnl_struct *stc, int fd, char *str_static);
-void			gnl_exit(char *str_static, t_gnl_struct *stc);
+void			gnl_static(t_gnl_struct *stc, int fd, int *error);
+void			gnl_read(t_gnl_struct *stc, int fd, int *error);
+void			gnl_return(t_gnl_struct *stc, int *error);
+void			gnl_error(t_gnl_struct *stc, int *error, char *emessage);
 
 #endif

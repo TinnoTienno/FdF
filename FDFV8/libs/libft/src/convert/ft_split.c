@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:45:39 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/11 15:05:57 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/10 15:49:29 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char	**ft_split(char const *s, char c)
 	char	**tab;
 	int		totalword;
 
-	if ((!s && c != '\0') || (s[0] == 0)) 
+	if ((!s && c != '\0') || (s[0] == 0))
 	{
 		tab = malloc (sizeof(char *));
 		if (!tab)

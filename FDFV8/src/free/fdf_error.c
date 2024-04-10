@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 23:56:57 by eschussl          #+#    #+#             */
-/*   Updated: 2024/04/05 18:36:01 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/10 15:39:15 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,19 @@ static void	fdf_free_vertices(t_main *main)
 	}
 }
 
+static void	fdf_free_parsing(t_main *main)
+{
+	void	*tmp;
+
+	while (main->parsing)
+	{
+		tmp = main->parsing->next;
+		free (main->parsing->line);
+		free (main->parsing);
+		main->parsing = tmp;
+	}
+}
+
 void	fdf_error(t_main *main, char *error_message)
 {
 	if (error_message && error_message[0])
@@ -69,7 +82,8 @@ void	fdf_error(t_main *main, char *error_message)
 	fdf_free_graphics(main);
 	fdf_free_vertices(main);
 	fdf_free_finfo(&main->finfo);
-	gnl(-1);
+	fdf_free_parsing(main);
+	gnl(-1, &main->gnl_error);
 	if (error_message && error_message[0])
 		exit(EXIT_FAILURE);
 }

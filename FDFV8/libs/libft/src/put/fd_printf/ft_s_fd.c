@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:50:43 by eschussl          #+#    #+#             */
-/*   Updated: 2024/04/05 18:01:37 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/08 16:02:53 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static char	*ft_prec(t_printfstruct structure, char *src)
 	char	*dest;
 
 	dest = ft_setalloc(sizeof(char), ft_strlen(src) + 1, ' ');
+	if (!dest)
+		return (NULL);
 	ft_strdcpy(src, dest, 0);
 	if (structure.precision)
 	{

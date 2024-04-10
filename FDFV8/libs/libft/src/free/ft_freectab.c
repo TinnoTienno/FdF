@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 15:16:08 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/11 15:19:57 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/10 15:49:08 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_freectab(char **tab)
 {
 	int	i;
-	
+
 	i = 0;
 	if (!tab)
 		return ;

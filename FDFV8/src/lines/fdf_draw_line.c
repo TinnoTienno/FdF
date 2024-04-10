@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 12:31:11 by eschussl          #+#    #+#             */
-/*   Updated: 2024/04/05 18:58:48 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/10 15:57:52 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ static int	fdf_should_draw(t_main *main, double index, double z1, double z2)
 		- DEFAULT_WINDOW_BORDER || main->line.y0 >= main->finfo.w_height \
 		- DEFAULT_WINDOW_BORDER)
 		return (0);
-	z = (double) abs((int)(z2 - z1)) * index;
+	if (z2 > z1)
+		z = (double)(int)(z2 - z1) *index;
+	else
+		z = (double)(int)(z1 - z2) *index;
 	if (z > main->image_z[main->line.y0][main->line.x0])
 	{
 		main->image_z[main->line.y0][main->line.x0] = z;
@@ -48,9 +51,10 @@ t_line	fdf_line_init(t_main *main, t_vertex *v1, t_vertex *v2)
 	return (main->line);
 }
 
-static void	fdf_draw_line_2(t_main *main)
+void	fdf_draw_line_2(t_main *main)
 {
-	if (main->line.err2 > main->line.dy)
+	main->line.err2 = main->line.err * 2;
+	if (main->line.err2 > -main->line.dy)
 	{
 		main->line.err -= main->line.dy;
 		main->line.x0 += main->line.sx;
@@ -67,6 +71,8 @@ void	fdf_draw_line(t_main *main, t_vertex *v1, t_vertex *v2)
 	int		color;
 	double	index;
 
+	if (fdf_line_oob(main, v1, v2) != 0)
+		return ;
 	main->line = fdf_line_init(main, v1, v2);
 	main->line.x0 = v1->val[1][0];
 	main->line.y0 = v1->val[1][1];
@@ -78,11 +84,12 @@ void	fdf_draw_line(t_main *main, t_vertex *v1, t_vertex *v2)
 		else
 			index = (double)(abs(main->line.y0 - (int) \
 				v2->val[1][1])) / (double) main->line.dy;
-		color = fdf_color_shift(index, v2->color[main->event.colormode], \
-			v1->color[main->event.colormode]);
-		main->line.err2 = 2 * main->line.err;
 		fdf_draw_line_2(main);
-		if (fdf_should_draw(main, index, v2->val[0][2], v1->val[0][2]) == 1)
+		if (fdf_should_draw(main, index, v1->val[0][2], v2->val[0][2]) == 1)
+		{
+			color = fdf_color_shift(index, v2->color[main->event.colormode], \
+			v1->color[main->event.colormode]);
 			fdf_draw_pixel(main, main->line.x0, main->line.y0, color);
+		}
 	}
 }

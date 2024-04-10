@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 15:30:07 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/11 15:53:32 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/10 15:53:26 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static int	ft_counttabsize(char **tab)
 {
-	int count;
+	int	count;
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	count = 0;
 	while (tab[i])
@@ -33,13 +33,14 @@ static int	ft_counttabsize(char **tab)
 	}
 	return (count - 1);
 }
-char *ft_argjoin(char **tab, char c)
+
+char	*ft_argjoin(char **tab, char c)
 {
-	char *res;
-	int	i;
-	int	j;
-	int	k;
-	
+	char	*res;
+	int		i;
+	int		j;
+	int		k;
+
 	i = 0;
 	k = 0;
 	while (tab[i])
@@ -61,4 +62,3 @@ char *ft_argjoin(char **tab, char c)
 	}
 	return (res);
 }
-

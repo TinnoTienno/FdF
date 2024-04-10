@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 23:24:48 by eschussl          #+#    #+#             */
-/*   Updated: 2024/04/05 19:06:33 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/10 14:14:51 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,7 @@ struct	s_main
 	t_colors	colors;
 	t_parsing	*parsing;
 	t_line		line;
+	int			gnl_error;
 };
 
 /*##########################################################################
@@ -204,6 +205,7 @@ void		fdf_event(t_main *main, int c);
 int			fdf_push_loop(t_main *main);
 int			fdf_angle(int keycode, t_main *main);
 int			fdf_mouse_scroll(int button, int x, int y, t_main *main);
+int			fdf_x_cross(t_main *main);
 
 /*###########
 #   LINES	#
@@ -212,5 +214,6 @@ int			fdf_mouse_scroll(int button, int x, int y, t_main *main);
 void		fdf_lines(t_main *main);
 void		fdf_draw_line(t_main *main, t_vertex *v1, t_vertex *v2);
 void		fdf_draw_pixel(t_main *main, int x, int y, int color);
+int			fdf_line_oob(t_main *main, t_vertex *v1, t_vertex *v2);
 
 #endif

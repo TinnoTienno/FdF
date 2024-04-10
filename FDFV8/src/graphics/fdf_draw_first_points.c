@@ -6,7 +6,7 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 16:40:34 by eschussl          #+#    #+#             */
-/*   Updated: 2024/04/05 18:37:45 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/08 14:44:56 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,13 @@ static void	fdf_isometric_vertex(t_main *main, t_vertex *vertex)
 	angle2 = asin(tan(M_PI / 6));
 	ax = vertex->val[1][0];
 	vertex->val[1][0] = cos(angle1) * vertex->val[1][0] \
-	- sin(angle1) * vertex->val[1][2];
+		- sin(angle1) * vertex->val[1][2];
 	vertex->val[1][2] = sin(angle1) * ax + cos(angle1) * vertex->val[1][2];
 	vertex->val[1][1] = cos(angle2) * vertex->val[1][1] \
-	+ sin(angle2) * vertex->val[1][2];
+		+ sin(angle2) * vertex->val[1][2];
 	ax = vertex->val[1][1];
 	vertex->val[1][2] = cos(angle2) * vertex->val[1][2] - sin(angle2) * ax;
 	fdf_xy_min_max(main, vertex);
-}
-
-static void	fdf_offsetting(t_main *main, t_vertex *vertex)
-{
-	vertex->val[1][0] = fdf_offsetx(main, fdf_scaling(main, vertex->val[1][0]));
-	vertex->val[1][1] = fdf_offsety(main, fdf_scaling(main, vertex->val[1][1]));
 }
 
 static void	fdf_clean_vertex(t_vertex *vertex)
@@ -72,16 +66,6 @@ void	fdf_draw_first_points(t_main *main)
 			fdf_isometric_vertex(main, &main->vertices[y][x]);
 		}
 	}
-	y = -1;
 	fdf_scaling_first(main);
-	while (++y < main->minfo.height)
-	{
-		x = -1;
-		while (++x < main->minfo.width)
-		{
-			fdf_offsetting(main, &main->vertices[y][x]);
-			fdf_put_pixel(main, &main->vertices[y][x]);
-		}
-	}
 	mlx_put_image_to_window(main->mlx, main->win, main->image.img, 0, 0);
 }

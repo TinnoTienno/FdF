@@ -6,18 +6,18 @@
 /*   By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 16:56:04 by eschussl          #+#    #+#             */
-/*   Updated: 2024/03/16 17:50:18 by eschussl         ###   ########.fr       */
+/*   Updated: 2024/04/10 15:46:50 by eschussl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_firstword(char *str, char c)
+char	*ft_firstword(char *str, char c)
 {
-	int	i;
-	int j;
-	char *res;
-	
+	int		i;
+	int		j;
+	char	*res;
+
 	i = 0;
 	j = 0;
 	while (str[j] && str[j] == c)
