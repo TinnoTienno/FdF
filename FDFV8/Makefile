@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eschussl <eschussl@student.42.fr>          +#+  +:+       +#+         #
+#    By: noda <noda@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 18:13:27 by eschussl          #+#    #+#              #
-#    Updated: 2024/04/10 15:35:02 by eschussl         ###   ########.fr        #
+#    Updated: 2024/07/11 07:23:56 by noda             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME			=	fdf
 
 CC				=	@cc
 CFLAGS			=	-Wall -Wextra -Werror -g3 -O3
-LFLAGS			= 	-lXext -lX11 -lz -lm
+LFLAGS			= 	-lXext -lX11 -lz -lm -fPIE
 
 LIBS_PATH		=	libs/
 LIBFT_PATH		=	$(addprefix $(LIBS_PATH),libft/)
