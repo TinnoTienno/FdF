@@ -56,6 +56,9 @@ The input file contains a grid of integers representing terrain altitudes:
 - **Efficient memory usage** - Minimal allocations during rendering
 - **Fast transformation** - Optimized matrix operations
 
+### Additionnal Controls
+- **More shortcuts** - L and C keys changing display parameters
+
 ## Future Enhancements
 
 ### Multithreading
@@ -104,6 +107,8 @@ make clean
 - **Mouse wheel** - Zoom in/out
 - **Arrow keys** - Rotate view
 - **WASD** - Pan view
+- **C** - alternate between colormods
+- **L** - alternate between linemods
 
 ## Project Structure
 
