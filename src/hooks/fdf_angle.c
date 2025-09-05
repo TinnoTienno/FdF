@@ -86,6 +86,7 @@ static void	fdf_d(t_main *main)
 	}
 }
 
+
 int	fdf_angle(int keycode, t_main *main)
 {
 	if (keycode == XK_w || keycode == XK_W)

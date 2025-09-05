@@ -19,6 +19,7 @@
 
 # include "libft.h"
 # include <mlx.h>
+# include <stdbool.h>
 
 /*##########################################################################
 #                                                                           #
@@ -83,6 +84,7 @@ struct s_event
 	int		z_angle;
 	double	scaling;
 	int		z_mod;
+    bool    rotating;
 };
 
 struct s_colors
@@ -194,6 +196,7 @@ int			fdf_push_loop(t_main *main);
 int			fdf_angle(int keycode, t_main *main);
 int			fdf_mouse_scroll(int button, int x, int y, t_main *main);
 int			fdf_x_cross(t_main *main);
+int         rotate_hook(t_main *main);
 
 /*###########
 #   LINES	#

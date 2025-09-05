@@ -80,6 +80,21 @@ int	fdf_push_loop(t_main *main)
 	int	x;
 
 	y = -1;
+    static int current_angle = 0;
+
+    if (main->event.rotating == true)
+    {
+        if (current_angle >= 360)
+        {
+            current_angle = 0;
+            main->event.rotating = false;
+        }
+        else
+        {
+            current_angle += 1;
+            main->event.z_angle = current_angle;
+        }
+    }
 	fdf_clean_win(main);
 	while (++y < main->minfo.height)
 	{

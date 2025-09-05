@@ -67,6 +67,8 @@ int	fdf_hooks_keypress(int keycode, t_main *main)
 		return (1);
 	else if (fdf_is_arrow(keycode, main) == 1)
 		return (2);
+    else if (keycode == XK_space)
+        main->event.rotating = true;
 	else if (keycode == XK_KP_Up)
 	{
 		main->event.z_mod += 1;
