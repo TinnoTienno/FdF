@@ -10,6 +10,8 @@ A 3D wireframe visualization tool that transforms heightmap data into stunning i
 
 FDF reads a file containing altitude coordinates and generates a real-time 3D wireframe representation. This project demonstrates:
 
+![visual1](/assets/visual1.gif)
+
 - **File parsing and validation** - Robust input handling with error checking
 - **3D mathematical transformations** - Isometric projection and matrix operations  
 - **Graphics programming** - Real-time rendering with MiniLibX
