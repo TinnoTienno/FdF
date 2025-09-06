@@ -10,6 +10,7 @@
 # define DEFAULT_WINDOW_HEIGHT 720
 # define DEFAULT_WINDOW_WIDTH 1080
 # define DEFAULT_WINDOW_BORDER 30
+# define MAX_THREAD 16
 
 /*##########################################################################
 #                                                                           #
@@ -20,6 +21,7 @@
 # include "libft.h"
 # include <mlx.h>
 # include <stdbool.h>
+# include <pthread.h>
 
 /*##########################################################################
 #                                                                           #
@@ -34,7 +36,7 @@ typedef struct s_minfo		t_minfo;
 typedef struct s_event		t_event;
 typedef struct s_colors		t_colors;
 typedef struct s_parsing	t_parsing;
-typedef struct s_line		t_line;
+typedef struct s_line		    t_line;
 typedef struct s_main		t_main;
 
 struct s_finfo
@@ -103,6 +105,12 @@ struct s_colors
 	double		top_level;
 };
 
+typedef struct arg_struct {
+    t_main *main;
+    int min;
+    int max;
+} arg_struct;
+
 struct	s_parsing
 {
 	void	*next;
@@ -124,6 +132,7 @@ struct	s_line
 struct	s_main
 {
 	t_finfo		finfo;
+    pthread_t thread_array[MAX_THREAD];
 	void		*mlx;
 	void		*win;
 	t_data		image;
@@ -133,7 +142,6 @@ struct	s_main
 	t_event		event;
 	t_colors	colors;
 	t_parsing	*parsing;
-	t_line		line;
 	int			gnl_error;
 };
 
@@ -196,7 +204,8 @@ int			fdf_push_loop(t_main *main);
 int			fdf_angle(int keycode, t_main *main);
 int			fdf_mouse_scroll(int button, int x, int y, t_main *main);
 int			fdf_x_cross(t_main *main);
-int         rotate_hook(t_main *main);
+void        fdf_threads_init(t_main *main, void *(*function)(void *));
+void        *fdf_thread_exec(void *ptr);
 
 /*###########
 #   LINES	#

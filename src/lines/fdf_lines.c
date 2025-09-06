@@ -12,34 +12,33 @@
 
 #include "fdf.h"
 
-void	fdf_lines_next(t_main *main)
+void	*fdf_lines_next(void *ptr)
 {
-	int	y;
-	int	x;
-
-	y = -1;
-	while (++y < main->minfo.height)
-	{
-		x = -1;
-		while (++x < main->minfo.width)
-		{
-			if (main->event.linemode == 2 && x < \
-				main->minfo.width - 1 && y < main->minfo.height - 1)
-				fdf_draw_line(main, &main->vertices[y][x], \
-					&main->vertices[y + 1][x + 1]);
-			if (x < main->minfo.width - 1)
-				fdf_draw_line(main, &main->vertices[y][x], \
-					&main->vertices[y][x + 1]);
-			if (y < main->minfo.height - 1)
-				fdf_draw_line(main, &main->vertices[y][x], \
-					&main->vertices[y + 1][x]);
+	struct arg_struct *args = ptr;
+    int y = args->min;
+    for (; y < args->max; y++)
+    {
+	    for (int x = 0; x < args->main->minfo.width; x++)
+	    {
+			if (args->main->event.linemode == 2 && x < \
+				args->main->minfo.width - 1 && y < args->main->minfo.height - 1)
+				fdf_draw_line(args->main, &args->main->vertices[y][x], \
+					&args->main->vertices[y + 1][x + 1]);
+			if (x < args->main->minfo.width - 1)
+				fdf_draw_line(args->main, &args->main->vertices[y][x], \
+					&args->main->vertices[y][x + 1]);
+			if (y < args->main->minfo.height - 1)
+				fdf_draw_line(args->main, &args->main->vertices[y][x], \
+					&args->main->vertices[y + 1][x]);
 		}
-	}
+    }
+    pthread_exit(NULL);
+    return  NULL;
 }
 
 void	fdf_lines(t_main *main)
 {
 	if (main->event.linemode == 1)
 		return ;
-	fdf_lines_next(main);
+    fdf_threads_init(main, fdf_lines_next);
 }

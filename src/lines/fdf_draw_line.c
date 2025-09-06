@@ -13,56 +13,58 @@
 #include "fdf.h"
 #include <math.h>
 
-static int	fdf_should_draw(t_main *main, double index, double z1, double z2)
+static int	fdf_should_draw(t_main *main, double index, double z1, double z2, t_line *line)
 {
 	double	z;
 
-	if (main->line.x0 < DEFAULT_WINDOW_BORDER || main->line.y0 \
-		< DEFAULT_WINDOW_BORDER || main->line.x0 >= main->finfo.w_width \
-		- DEFAULT_WINDOW_BORDER || main->line.y0 >= main->finfo.w_height \
+	if (line->x0 < DEFAULT_WINDOW_BORDER || line->y0 \
+		< DEFAULT_WINDOW_BORDER || line->x0 >= main->finfo.w_width \
+		- DEFAULT_WINDOW_BORDER || line->y0 >= main->finfo.w_height \
 		- DEFAULT_WINDOW_BORDER)
 		return (0);
 	if (z2 > z1)
 		z = (double)(int)(z2 - z1) *index;
 	else
 		z = (double)(int)(z1 - z2) *index;
-	if (z > main->image_z[main->line.y0][main->line.x0])
+	if (z > main->image_z[line->y0][line->x0])
 	{
-		main->image_z[main->line.y0][main->line.x0] = z;
+		main->image_z[line->y0][line->x0] = z;
 		return (1);
 	}
 	else
 		return (0);
 }
 
-t_line	fdf_line_init(t_main *main, t_vertex *v1, t_vertex *v2)
+t_line	fdf_line_init(t_vertex *v1, t_vertex *v2)
 {
-	main->line.dy = abs((int)(v2->val[1][1] - v1->val[1][1]));
-	main->line.dx = abs((int)(v2->val[1][0] - v1->val[1][0]));
+    t_line line;
+
+	line.dy = abs((int)(v2->val[1][1] - v1->val[1][1]));
+	line.dx = abs((int)(v2->val[1][0] - v1->val[1][0]));
 	if (v2->val[1][0] > v1->val[1][0])
-		main->line.sx = 1;
+		line.sx = 1;
 	else
-		main->line.sx = -1;
+		line.sx = -1;
 	if (v2->val[1][1] > v1->val[1][1])
-		main->line.sy = 1;
+		line.sy = 1;
 	else
-		main->line.sy = -1;
-	main->line.err = main->line.dx - main->line.dy;
-	return (main->line);
+		line.sy = -1;
+	line.err = line.dx - line.dy;
+	return (line);
 }
 
-void	fdf_draw_line_2(t_main *main)
+void	fdf_draw_line_2(t_line *line)
 {
-	main->line.err2 = main->line.err * 2;
-	if (main->line.err2 > -main->line.dy)
+	line->err2 = line->err * 2;
+	if (line->err2 > -line->dy)
 	{
-		main->line.err -= main->line.dy;
-		main->line.x0 += main->line.sx;
+		line->err -= line->dy;
+		line->x0 += line->sx;
 	}
-	if (main->line.err2 < main->line.dx)
+	if (line->err2 < line->dx)
 	{
-		main->line.err += main->line.dx;
-		main->line.y0 += main->line.sy;
+		line->err += line->dx;
+		line->y0 += line->sy;
 	}
 }
 
@@ -73,23 +75,23 @@ void	fdf_draw_line(t_main *main, t_vertex *v1, t_vertex *v2)
 
 	if (fdf_line_oob(main, v1, v2) != 0)
 		return ;
-	main->line = fdf_line_init(main, v1, v2);
-	main->line.x0 = v1->val[1][0];
-	main->line.y0 = v1->val[1][1];
-	while (main->line.x0 != v2->val[1][0] || main->line.y0 != v2->val[1][1])
+	t_line		line = fdf_line_init(v1, v2);
+	line.x0 = v1->val[1][0];
+	line.y0 = v1->val[1][1];
+	while (line.x0 != v2->val[1][0] || line.y0 != v2->val[1][1])
 	{
-		if (main->line.dx)
-			index = (double)(abs(main->line.x0 - (int) \
-				v2->val[1][0])) / (double) main->line.dx;
+		if (line.dx)
+			index = (double)(abs(line.x0 - (int) \
+				v2->val[1][0])) / (double) line.dx;
 		else
-			index = (double)(abs(main->line.y0 - (int) \
-				v2->val[1][1])) / (double) main->line.dy;
-		fdf_draw_line_2(main);
-		if (fdf_should_draw(main, index, v1->val[0][2], v2->val[0][2]) == 1)
+			index = (double)(abs(line.y0 - (int) \
+				v2->val[1][1])) / (double) line.dy;
+		fdf_draw_line_2(&line);
+		if (fdf_should_draw(main, index, v1->val[0][2], v2->val[0][2], &line) == 1)
 		{
 			color = fdf_color_shift(index, v2->color[main->event.colormode], \
 			v1->color[main->event.colormode]);
-			fdf_draw_pixel(main, main->line.x0, main->line.y0, color);
+			fdf_draw_pixel(main, line.x0, line.y0, color);
 		}
 	}
 }

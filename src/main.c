@@ -14,7 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	static t_main	main = {0};
+	static t_main main = {0};
 
 	if (argc == 1)
 		return (fd_printf(2, "Error in Main function : No argument\n"), 1);

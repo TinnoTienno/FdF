@@ -34,13 +34,13 @@ int	fdf_line_oob(t_main *main, t_vertex *v1, t_vertex *v2)
 	oob2 = fdf_point_oob(main, v2);
 	if (oob1 == 0 || oob2 == 0)
 		return (0);
-	if (oob1 == 1 && oob2 != 0)
+	if (oob1 == 1)
 		return (1);
-	if (oob1 == 2 && oob2 != 0)
+	if (oob1 == 2)
 		return (2);
-	if (oob1 == 3 && oob2 != 0)
+	if (oob1 == 3)
 		return (3);
-	if (oob1 == 4 && oob2 != 0)
+	if (oob1 == 4)
 		return (4);
 	return (0);
 }

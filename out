@@ -1,0 +1,349 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 52.05      3.80     3.80                             fdf_thread_exec
+ 11.64      4.65     0.85  8123987     0.00     0.00  fdf_draw_line
+ 11.37      5.48     0.83                             _init
+  6.16      5.93     0.45 35057394     0.00     0.00  fdf_put_pixel
+  4.79      6.28     0.35 56520087     0.00     0.00  fdf_scaling
+  3.01      6.50     0.22      176     1.25     1.25  fdf_clean_win
+  2.74      6.70     0.20  8067304     0.00     0.00  fdf_line_oob
+  1.37      6.80     0.10 31655996     0.00     0.00  fdf_offsety
+  1.37      6.90     0.10                             ft_memset
+  1.23      6.99     0.09 24803304     0.00     0.00  fdf_offsetx
+  0.96      7.06     0.07                             fdf_lines_next
+  0.82      7.12     0.06                             ft_atolle
+  0.68      7.17     0.05        1    50.00    50.00  fdf_draw_first_points
+  0.41      7.20     0.03                             ft_strlen
+  0.27      7.22     0.02  1099903     0.00     0.00  fdf_draw_pixel
+  0.27      7.24     0.02        1    20.00    20.00  fdf_colors_init
+  0.27      7.26     0.02        1    20.00    20.00  fdf_normilizing
+  0.27      7.28     0.02                             gnl_str_return
+  0.14      7.29     0.01        1    10.00    10.00  fdf_image_z_init
+  0.14      7.30     0.01        1    10.00    10.00  fdf_vertices
+  0.00      7.30     0.00  1082830     0.00     0.00  fdf_color_shift
+  0.00      7.30     0.00     1010     0.00     0.00  fdf_hooks_keypress
+  0.00      7.30     0.00      896     0.00     0.00  fdf_angle
+  0.00      7.30     0.00      200     0.00     0.00  fdf_threads_init
+  0.00      7.30     0.00      176     0.00     0.00  fdf_lines
+  0.00      7.30     0.00      176     0.00     1.25  fdf_push_loop
+  0.00      7.30     0.00       44     0.00     0.00  fdf_mouse_scroll
+  0.00      7.30     0.00        3     0.00     0.00  fdf_event
+  0.00      7.30     0.00        1     0.00     0.00  fdf_args
+  0.00      7.30     0.00        1     0.00     0.00  fdf_error
+  0.00      7.30     0.00        1     0.00     0.00  fdf_free_graphics
+  0.00      7.30     0.00        1     0.00     0.00  fdf_freeparsing
+  0.00      7.30     0.00        1     0.00    60.00  fdf_graphics
+  0.00      7.30     0.00        1     0.00     0.00  fdf_hooks_close
+  0.00      7.30     0.00        1     0.00    50.00  fdf_image_init
+  0.00      7.30     0.00        1     0.00     0.00  fdf_map_info
+  0.00      7.30     0.00        1     0.00    30.00  fdf_mapping
+  0.00      7.30     0.00        1     0.00     0.00  fdf_parsing
+  0.00      7.30     0.00        1     0.00     0.00  fdf_scale_init
+  0.00      7.30     0.00        1     0.00     0.00  fdf_scaling_first
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) for 0.14% of 7.30 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]     65.6    3.80    0.99                 fdf_thread_exec [1]
+                0.45    0.00 35057394/35057394     fdf_put_pixel [5]
+                0.35    0.00 56520087/56520087     fdf_scaling [6]
+                0.10    0.00 31655996/31655996     fdf_offsety [12]
+                0.09    0.00 24803304/24803304     fdf_offsetx [14]
+-----------------------------------------------
+                                                 <spontaneous>
+[2]     15.6    0.07    1.07                 fdf_lines_next [2]
+                0.85    0.22 8123987/8123987     fdf_draw_line [3]
+-----------------------------------------------
+                0.85    0.22 8123987/8123987     fdf_lines_next [2]
+[3]     14.7    0.85    0.22 8123987         fdf_draw_line [3]
+                0.20    0.00 8067304/8067304     fdf_line_oob [10]
+                0.02    0.00 1099903/1099903     fdf_draw_pixel [21]
+                0.00    0.00 1082830/1082830     fdf_color_shift [27]
+-----------------------------------------------
+                                                 <spontaneous>
+[4]     11.4    0.83    0.00                 _init [4]
+-----------------------------------------------
+                0.45    0.00 35057394/35057394     fdf_thread_exec [1]
+[5]      6.2    0.45    0.00 35057394         fdf_put_pixel [5]
+-----------------------------------------------
+                0.35    0.00 56520087/56520087     fdf_thread_exec [1]
+[6]      4.8    0.35    0.00 56520087         fdf_scaling [6]
+-----------------------------------------------
+                0.22    0.00     176/176         fdf_push_loop [8]
+[7]      3.0    0.22    0.00     176         fdf_clean_win [7]
+-----------------------------------------------
+                0.00    0.22     176/176         mlx_loop [9]
+[8]      3.0    0.00    0.22     176         fdf_push_loop [8]
+                0.22    0.00     176/176         fdf_clean_win [7]
+                0.00    0.00     200/200         fdf_threads_init [30]
+                0.00    0.00     176/176         fdf_lines [31]
+-----------------------------------------------
+                                                 <spontaneous>
+[9]      3.0    0.00    0.22                 mlx_loop [9]
+                0.00    0.22     176/176         fdf_push_loop [8]
+                0.00    0.00    1010/1010        fdf_hooks_keypress [28]
+                0.00    0.00      44/44          fdf_mouse_scroll [32]
+-----------------------------------------------
+                0.20    0.00 8067304/8067304     fdf_draw_line [3]
+[10]     2.7    0.20    0.00 8067304         fdf_line_oob [10]
+-----------------------------------------------
+                                                 <spontaneous>
+[11]     1.5    0.00    0.11                 main [11]
+                0.00    0.06       1/1           fdf_graphics [15]
+                0.00    0.03       1/1           fdf_mapping [19]
+                0.02    0.00       1/1           fdf_colors_init [22]
+                0.00    0.00       1/1           fdf_args [34]
+                0.00    0.00       1/1           fdf_scale_init [41]
+-----------------------------------------------
+                0.10    0.00 31655996/31655996     fdf_thread_exec [1]
+[12]     1.4    0.10    0.00 31655996         fdf_offsety [12]
+-----------------------------------------------
+                                                 <spontaneous>
+[13]     1.4    0.10    0.00                 ft_memset [13]
+-----------------------------------------------
+                0.09    0.00 24803304/24803304     fdf_thread_exec [1]
+[14]     1.2    0.09    0.00 24803304         fdf_offsetx [14]
+-----------------------------------------------
+                0.00    0.06       1/1           main [11]
+[15]     0.8    0.00    0.06       1         fdf_graphics [15]
+                0.00    0.05       1/1           fdf_image_init [18]
+                0.01    0.00       1/1           fdf_image_z_init [25]
+-----------------------------------------------
+                                                 <spontaneous>
+[16]     0.8    0.06    0.00                 ft_atolle [16]
+-----------------------------------------------
+                0.05    0.00       1/1           fdf_image_init [18]
+[17]     0.7    0.05    0.00       1         fdf_draw_first_points [17]
+                0.00    0.00       1/1           fdf_scaling_first [42]
+-----------------------------------------------
+                0.00    0.05       1/1           fdf_graphics [15]
+[18]     0.7    0.00    0.05       1         fdf_image_init [18]
+                0.05    0.00       1/1           fdf_draw_first_points [17]
+-----------------------------------------------
+                0.00    0.03       1/1           main [11]
+[19]     0.4    0.00    0.03       1         fdf_mapping [19]
+                0.02    0.00       1/1           fdf_normilizing [23]
+                0.01    0.00       1/1           fdf_vertices [26]
+                0.00    0.00       1/1           fdf_map_info [39]
+                0.00    0.00       1/1           fdf_parsing [40]
+                0.00    0.00       1/1           fdf_freeparsing [37]
+-----------------------------------------------
+                                                 <spontaneous>
+[20]     0.4    0.03    0.00                 ft_strlen [20]
+-----------------------------------------------
+                0.02    0.00 1099903/1099903     fdf_draw_line [3]
+[21]     0.3    0.02    0.00 1099903         fdf_draw_pixel [21]
+-----------------------------------------------
+                0.02    0.00       1/1           main [11]
+[22]     0.3    0.02    0.00       1         fdf_colors_init [22]
+-----------------------------------------------
+                0.02    0.00       1/1           fdf_mapping [19]
+[23]     0.3    0.02    0.00       1         fdf_normilizing [23]
+-----------------------------------------------
+                                                 <spontaneous>
+[24]     0.3    0.02    0.00                 gnl_str_return [24]
+-----------------------------------------------
+                0.01    0.00       1/1           fdf_graphics [15]
+[25]     0.1    0.01    0.00       1         fdf_image_z_init [25]
+-----------------------------------------------
+                0.01    0.00       1/1           fdf_mapping [19]
+[26]     0.1    0.01    0.00       1         fdf_vertices [26]
+-----------------------------------------------
+                0.00    0.00 1082830/1082830     fdf_draw_line [3]
+[27]     0.0    0.00    0.00 1082830         fdf_color_shift [27]
+-----------------------------------------------
+                0.00    0.00    1010/1010        mlx_loop [9]
+[28]     0.0    0.00    0.00    1010         fdf_hooks_keypress [28]
+                0.00    0.00     896/896         fdf_angle [29]
+                0.00    0.00       3/3           fdf_event [33]
+                0.00    0.00       1/1           fdf_hooks_close [38]
+-----------------------------------------------
+                0.00    0.00     896/896         fdf_hooks_keypress [28]
+[29]     0.0    0.00    0.00     896         fdf_angle [29]
+-----------------------------------------------
+                0.00    0.00     200/200         fdf_push_loop [8]
+[30]     0.0    0.00    0.00     200         fdf_threads_init [30]
+-----------------------------------------------
+                0.00    0.00     176/176         fdf_push_loop [8]
+[31]     0.0    0.00    0.00     176         fdf_lines [31]
+-----------------------------------------------
+                0.00    0.00      44/44          mlx_loop [9]
+[32]     0.0    0.00    0.00      44         fdf_mouse_scroll [32]
+-----------------------------------------------
+                0.00    0.00       3/3           fdf_hooks_keypress [28]
+[33]     0.0    0.00    0.00       3         fdf_event [33]
+-----------------------------------------------
+                0.00    0.00       1/1           main [11]
+[34]     0.0    0.00    0.00       1         fdf_args [34]
+-----------------------------------------------
+                0.00    0.00       1/1           fdf_hooks_close [38]
+[35]     0.0    0.00    0.00       1         fdf_error [35]
+                0.00    0.00       1/1           fdf_free_graphics [36]
+-----------------------------------------------
+                0.00    0.00       1/1           fdf_error [35]
+[36]     0.0    0.00    0.00       1         fdf_free_graphics [36]
+-----------------------------------------------
+                0.00    0.00       1/1           fdf_mapping [19]
+[37]     0.0    0.00    0.00       1         fdf_freeparsing [37]
+-----------------------------------------------
+                0.00    0.00       1/1           fdf_hooks_keypress [28]
+[38]     0.0    0.00    0.00       1         fdf_hooks_close [38]
+                0.00    0.00       1/1           fdf_error [35]
+-----------------------------------------------
+                0.00    0.00       1/1           fdf_mapping [19]
+[39]     0.0    0.00    0.00       1         fdf_map_info [39]
+-----------------------------------------------
+                0.00    0.00       1/1           fdf_mapping [19]
+[40]     0.0    0.00    0.00       1         fdf_parsing [40]
+-----------------------------------------------
+                0.00    0.00       1/1           main [11]
+[41]     0.0    0.00    0.00       1         fdf_scale_init [41]
+-----------------------------------------------
+                0.00    0.00       1/1           fdf_draw_first_points [17]
+[42]     0.0    0.00    0.00       1         fdf_scaling_first [42]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+   [4] _init                  [38] fdf_hooks_close         [8] fdf_push_loop
+  [29] fdf_angle              [28] fdf_hooks_keypress      [5] fdf_put_pixel
+  [34] fdf_args               [18] fdf_image_init         [41] fdf_scale_init
+   [7] fdf_clean_win          [25] fdf_image_z_init        [6] fdf_scaling
+  [27] fdf_color_shift        [10] fdf_line_oob           [42] fdf_scaling_first
+  [22] fdf_colors_init        [31] fdf_lines               [1] fdf_thread_exec
+  [17] fdf_draw_first_points   [2] fdf_lines_next         [30] fdf_threads_init
+   [3] fdf_draw_line          [39] fdf_map_info           [26] fdf_vertices
+  [21] fdf_draw_pixel         [19] fdf_mapping            [16] ft_atolle
+  [35] fdf_error              [32] fdf_mouse_scroll       [13] ft_memset
+  [33] fdf_event              [23] fdf_normilizing        [20] ft_strlen
+  [36] fdf_free_graphics (fdf_error.c) [14] fdf_offsetx   [24] gnl_str_return (gnl_return.c)
+  [37] fdf_freeparsing        [12] fdf_offsety
+  [15] fdf_graphics           [40] fdf_parsing

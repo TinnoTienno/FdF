@@ -25,6 +25,7 @@ void	fdf_put_pixel(t_main *main, t_vertex *vertex)
 	if (main->image_z[(int) round(vertex->val[1][1])][(int) \
 		round(vertex->val[1][0])] > (int) round(vertex->val[1][2]))
 		return ;
+    
 	dst = main->image.addr + (int) round(vertex->val[1][1]) * \
 		main->image.line_length + (int) round(vertex->val[1][0]) * \
 			(main->image.bits_per_pixel / 8);

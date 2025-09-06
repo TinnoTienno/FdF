@@ -11,10 +11,10 @@
 # **************************************************************************** #
 
 NAME			=	fdf
-
+#  -fsanitize=thread
 CC				=	@cc
-CFLAGS			=	-Wall -Wextra -Werror -g3 -O3
-LFLAGS			= 	-lXext -lX11 -lz -lm
+CFLAGS			=	-Wall -Wextra -Werror -g3 -O3 -pg
+LFLAGS			= 	-lXext -lX11 -lz -lm -lpthread
 
 LIBS_PATH		=	libs/
 LIBFT_PATH		=	$(addprefix $(LIBS_PATH),libft/)
@@ -55,7 +55,8 @@ SRCS			=	main.c\
 					fdf_angle.c\
 					fdf_push_loop.c\
 					fdf_events.c\
-					fdf_mouse_scroll.c)\
+					fdf_mouse_scroll.c\
+					fdf_threads.c)\
 					$(addprefix $(LINES_PATH),fdf_lines.c\
 					fdf_draw_line.c\
 					fdf_draw_pixel.c\
@@ -86,7 +87,8 @@ SRCS_BONUS		=	main.c\
 					fdf_push_loop.c\
 					fdf_angle.c\
 					fdf_events.c\
-					fdf_mouse_scroll.c)\
+					fdf_mouse_scroll.c\
+					fdf_threads.c)\
 					$(addprefix $(LINES_PATH),fdf_lines.c\
 					fdf_draw_line.c\
 					fdf_draw_pixel.c\
